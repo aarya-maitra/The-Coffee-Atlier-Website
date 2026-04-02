@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coffee Atelier | Cart</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="The Coffee Atelier logo"><span>The Coffee Atelier</span></a>
+      <div class="nav-wrap">
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <div class="nav-dropdown">
+            <span class="nav-dropdown-toggle">Coffee</span>
+            <div class="nav-dropdown-menu">
+              <a href="beans.html">Beans</a>
+              <a href="coffee.html">Coffee</a>
+            </div>
+          </div>
+          <a href="equipment.html">Equipment</a>
+          <a href="offers.html">Offers &amp; Subscription</a>
+          <a href="events.html">Events &amp; Workshops</a>
+          <a href="signup.html">Register</a>
+          <a href="login.html">Login</a>
+        </nav>
+        <a class="cart-link" href="cart.html" aria-label="Cart">
+          <span>&#128722;</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <h1 class="section-title">Your Cart</h1>
+        <div class="cart-layout">
+          <div>
+            <div id="cartItemsWrap"></div>
+            <div style="margin-top: 14px;">
+              <button class="btn btn-outline" id="clearCart">Clear Cart</button>
+            </div>
+          </div>
+          <aside class="summary">
+            <h3 class="section-title" style="font-size: 1.4rem; margin-bottom: 8px;">Order Summary</h3>
+            <p id="cartLoginNote" style="margin: 0 0 12px; color: var(--text-muted); font-size: 0.94rem;"></p>
+            <div class="summary-row"><span>Subtotal</span><span id="subtotal">£0.00</span></div>
+            <div class="summary-row"><span>Discount</span><span id="discount">£0.00</span></div>
+            <div class="summary-row"><strong>Total</strong><strong id="total">£0.00</strong></div>
+            <div class="field" style="margin: 10px 0;">
+              <label for="offerCode">Apply Offer</label>
+              <input id="offerCode" type="text" placeholder="Enter code">
+            </div>
+            <button class="btn btn-secondary" id="applyOfferBtn">Apply</button>
+            <button class="btn btn-primary" id="checkoutBtn" style="width: 100%; margin-top: 12px;">Checkout</button>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>About The Coffee Atelier</h3>
+        <p>Premium coffee blends, brewing equipment and curated workshops designed to bring coffee lovers together.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="beans.html">Coffee Beans</a>
+          <a href="coffee.html">Coffee Cups</a>
+          <a href="equipment.html">Brewing Equipment</a>
+          <a href="events.html">Events</a>
+          <a href="offers.html">Special Offers</a>
+        </div>
+      </div>
+      <div>
+        <h3>Contact Us</h3>
+        <div class="footer-contact">
+          <p>Email: info@thecoffeeatelier.com</p>
+          <p>Phone: +44 07135 43210</p>
+          <p>London, United Kingdom</p>
+        </div>
+      </div>
+      <div>
+        <h3>Subscribe</h3>
+        <form class="footer-subscribe">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="button" class="btn btn-gold" onclick="alert('Thanks for subscribing!')">Subscribe</button>
+        </form>
+        <div class="footer-social">
+          <a class="social-icon" href="#" aria-label="Facebook"><img src="images/facebook.svg" alt="Facebook"></a>
+          <a class="social-icon" href="#" aria-label="Instagram"><img src="images/instagram.svg" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 The Coffee Atelier | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/atelier.js"></script>
+  <script>
+    function setResponsiveViewport() {
+      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
+    }
+    setResponsiveViewport();
+    window.addEventListener("resize", setResponsiveViewport);
+
+    const cartWrap = document.getElementById("cartItemsWrap");
+    const subtotalEl = document.getElementById("subtotal");
+    const discountEl = document.getElementById("discount");
+    const totalEl = document.getElementById("total");
+    const offerInput = document.getElementById("offerCode");
+    const applyOfferBtn = document.getElementById("applyOfferBtn");
+    const cartLoginNote = document.getElementById("cartLoginNote");
+
+    function calculateSubtotal(cart) {
+      return cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+    }
+
+    function resolveCartImage(item) {
+      const imageByName = {
+        "Ethiopian Roast": "images/ethiopian-roast.png",
+        "Dark Roast": "images/dark-roast.png",
+        "Colombian Roast": "images/colombian-roast.png",
+        "Hazelnut Roast": "images/hazelnut-roast.png",
+        "Vanilla Fusion": "images/vanilla-fusion.png",
+        "Premium Decaf": "images/premium-decaf.png",
+        "French Press": "images/french-press.png",
+        "Espresso Machine": "images/espresso-machine.png",
+        "AeroPress": "images/aeropress.png",
+        "Needle Distributor": "images/needle-distributor.png",
+        "Moka Pot": "images/moka-pot.png",
+        "Cold Brew Maker": "images/cold-brew maker.png",
+        "Coffee Grinder": "images/coffee-grinder.png",
+        "Starter Subscription Plan": "images/picture4.jpg",
+        "Atelier Subscription Plan": "images/picture4.jpg",
+        "Collector Subscription Plan": "images/picture4.jpg",
+        "Event Seat: Coffee Making Basics": "images/events.jpg",
+        "Event Seat: Coffee Tasting Lab": "images/tasting event.jpg",
+        "Event Seat: Pour Over Masterclass": "images/Pour-over event.jpg",
+        "Event Seat: Espresso Fundamentals": "images/espresso fundamentals.jpg",
+        "Event Seat: Latte Art Workshop": "images/latte art.jpg",
+        "Event Seat: Cold Brew and Iced Coffee Workshop": "images/cold brew black coffee.jpg"
+      };
+
+      if (imageByName[item.name]) return imageByName[item.name];
+      if (item.image && item.image.trim() !== "") return item.image;
+      return "images/logo.png";
+    }
+
+    function renderCart() {
+      const cart = Atelier.getCart();
+      const discountRate = Atelier.getDiscountRate();
+      cartWrap.innerHTML = "";
+
+      if (!cart.length) {
+        cartWrap.innerHTML = `<div class="empty-note">Your cart is empty. Explore our coffee and equipment collections.</div>`;
+      } else {
+        cart.forEach((item) => {
+          const imageSrc = resolveCartImage(item);
+          const isSubscriptionPlan = typeof item.baseId === "string" && item.baseId.startsWith("sub-");
+          const selectedPackList = Array.isArray(item.selectedCoffeePacks) ? item.selectedCoffeePacks : [];
+          const selectedCoffeeText = selectedPackList.length
+            ? selectedPackList.map((pack) => `${pack.coffee} (${pack.size})`).join(", ")
+            : (Array.isArray(item.selectedCoffees) && item.selectedCoffees.length ? item.selectedCoffees.join(", ") : "");
+          const monthlyPacksText = isSubscriptionPlan && Number(item.monthlyPacks) > 0
+            ? `<p style="margin: 6px 0 0; font-size: 0.92rem; color: var(--text-muted);">Monthly quantity: ${item.monthlyPacks} packs</p>`
+            : "";
+          const sizeMixText = isSubscriptionPlan && item.sizeMixSummary
+            ? `<p style="margin: 4px 0 0; font-size: 0.92rem; color: var(--text-muted);">Pack sizes: ${item.sizeMixSummary}</p>`
+            : "";
+          const subscriptionPriceText = isSubscriptionPlan && Number.isFinite(item.basePrice)
+            ? `<p style="margin: 4px 0 0; font-size: 0.92rem; color: var(--text-muted);">Base plan price: £${Number(item.basePrice).toFixed(2)} | Adjusted by size: £${item.price.toFixed(2)}</p>`
+            : "";
+          const selectedCoffeeDetailsText = selectedCoffeeText
+            ? `<p style="margin: 4px 0 0; font-size: 0.92rem; color: var(--text-muted);">Selected coffees: ${selectedCoffeeText}</p>`
+            : "";
+          const article = document.createElement("article");
+          article.className = "cart-item";
+          article.innerHTML = `
+            <img src="${imageSrc}" alt="${item.name}" onerror="this.onerror=null;this.src='images/logo.png';">
+            <div>
+              <h3 style="margin: 0 0 6px; color: var(--accent-secondary);">${item.name}</h3>
+              <p style="margin: 0;">£${item.price.toFixed(2)}</p>
+              ${monthlyPacksText}
+              ${sizeMixText}
+              ${subscriptionPriceText}
+              ${selectedCoffeeDetailsText}
+              <button class="btn btn-outline" data-remove="${item.id}" style="margin-top: 8px;">Remove</button>
+            </div>
+            <div class="qty-controls">
+              <button class="qty-btn" data-dec="${item.id}">-</button>
+              <span>${item.qty}</span>
+              <button class="qty-btn" data-inc="${item.id}">+</button>
+            </div>
+          `;
+          cartWrap.appendChild(article);
+        });
+      }
+
+      const subtotal = calculateSubtotal(cart);
+      const discount = subtotal * discountRate;
+      const total = subtotal - discount;
+      subtotalEl.textContent = `£${subtotal.toFixed(2)}`;
+      discountEl.textContent = `£${discount.toFixed(2)}`;
+      totalEl.textContent = `£${total.toFixed(2)}`;
+
+      cartLoginNote.textContent = Atelier.isLoggedIn()
+        ? "Logged in customers can apply FIRSTORDER once for 10% off."
+        : "Log in to apply FIRSTORDER and complete checkout.";
+
+      Atelier.updateCartBadges();
+    }
+
+    cartWrap.addEventListener("click", (event) => {
+      const cart = Atelier.getCart();
+      const incId = event.target.dataset.inc;
+      const decId = event.target.dataset.dec;
+      const removeId = event.target.dataset.remove;
+
+      if (incId) {
+        const product = cart.find((item) => item.id === incId);
+        if (product) product.qty += 1;
+      }
+      if (decId) {
+        const product = cart.find((item) => item.id === decId);
+        if (product && product.qty > 1) product.qty -= 1;
+      }
+      if (removeId) {
+        const updatedCart = cart.filter((item) => item.id !== removeId);
+        Atelier.saveCart(updatedCart);
+        renderCart();
+        return;
+      }
+
+      Atelier.saveCart(cart);
+      renderCart();
+    });
+
+    document.getElementById("clearCart").addEventListener("click", () => {
+      Atelier.clearCart();
+      Atelier.clearDiscount();
+      Atelier.clearCheckoutDraft();
+      offerInput.value = "";
+      renderCart();
+    });
+
+    applyOfferBtn.addEventListener("click", () => {
+      if (!Atelier.requireLogin()) return;
+
+      const code = offerInput.value.trim().toUpperCase();
+      if (code === "FIRSTORDER") {
+        Atelier.applyFirstOrderDiscount();
+      } else {
+        Atelier.setDiscount(0, "");
+        alert("Invalid offer code.");
+      }
+      renderCart();
+    });
+
+    document.getElementById("checkoutBtn").addEventListener("click", () => {
+      if (!Atelier.requireLogin()) return;
+
+      const cart = Atelier.getCart();
+      if (!cart.length) {
+        alert("Your cart is empty.");
+        return;
+      }
+
+      const subtotal = calculateSubtotal(cart);
+      const discountRate = Atelier.getDiscountRate();
+      const discount = subtotal * discountRate;
+      const total = subtotal - discount;
+      Atelier.setCheckoutDraft({
+        items: cart,
+        subtotal,
+        discountRate,
+        discount,
+        total,
+        discountCode: sessionStorage.getItem("discountCode") || "",
+        createdAt: new Date().toISOString()
+      });
+      window.location.href = "payment.html";
+    });
+
+    renderCart();
+  </script>
+</body>
+</html>

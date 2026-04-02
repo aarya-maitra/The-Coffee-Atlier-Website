@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coffee Atelier | Coffee Cups</title>
+  <meta name="description"
+    content="Discover our handcrafted coffee cups — from classic espressos to indulgent lattes, each created with care and artistry at The Coffee Atelier.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="top-banner">Get 10% off on first order with code FIRSTORDER</div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="The Coffee Atelier logo"><span>The Coffee
+          Atelier</span></a>
+      <div class="nav-wrap">
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <div class="nav-dropdown">
+            <span class="nav-dropdown-toggle active">Coffee</span>
+            <div class="nav-dropdown-menu">
+              <a href="beans.html">Beans</a>
+              <a class="active" href="coffee.html">Coffee</a>
+            </div>
+          </div>
+          <a href="equipment.html">Equipment</a>
+          <a href="offers.html">Offers &amp; Subscription</a>
+          <a href="events.html">Events &amp; Workshops</a>
+          <a href="signup.html">Register</a>
+          <a href="login.html">Login</a>
+        </nav>
+        <a class="cart-link" href="cart.html" aria-label="Cart">
+          <span>&#128722;</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <h1 class="section-title">Our Coffee Menu</h1>
+        <p class="section-subtext">Handcrafted cups brewed with precision and passion — from bold espressos to velvety
+          lattes, every sip tells a story.</p>
+        <div class="catalog-tools">
+          <div class="catalog-search">
+            <label for="cupSearch" style="display: none;">Search coffee cups</label>
+            <input id="cupSearch" class="search-input" type="search" placeholder="Search by name or flavour notes…"
+              aria-label="Search coffee cups">
+          </div>
+          <p id="cupSearchEmpty" class="search-empty" hidden>No coffee cups match your search.</p>
+        </div>
+
+        <div class="collection-grid" id="cupGrid">
+
+
+          <article class="card product-card product-card-horizontal" data-id="cup-1" data-name="Espresso"
+            data-price="3.50" data-image="images/espresso.jpeg"
+            data-short="Intense, bold shot with a rich golden crema."
+            data-description="Our signature Espresso is pulled from freshly ground Ethiopian or Colombian beans to achieve a balanced extraction — rich, syrupy body with notes of dark chocolate and a lingering bittersweet finish."
+            data-usage="Served as a 30ml double shot. Best enjoyed immediately for the full crema experience. Available hot only.">
+            <img src="images/espresso.jpeg" alt="Espresso">
+            <div class="card-content">
+              <p class="product-title">Espresso</p>
+              <p class="product-one-liner">Intense, bold shot with a rich golden crema.</p>
+              <p class="tasting-notes" style="font-size: 0.9rem; margin-bottom: 10px; color: #5a2d2d;"><strong>Flavour
+                  Notes:</strong> Dark Chocolate, Bittersweet, Syrupy</p>
+              <p class="price">&pound;3.50</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="card product-card product-card-horizontal" data-id="cup-2" data-name="Flat White"
+            data-price="4.20" data-image="images/flat white.jpeg"
+            data-short="Velvety micro-foam with a smooth espresso base."
+            data-description="The Flat White combines a double ristretto shot with precisely steamed micro-foam, creating a silkier, richer alternative to a latte. Expect a bold coffee-forward flavour with a creamy, smooth finish."
+            data-usage="Served in a 160ml cup. Milk is steamed to 65°C for maximum sweetness. Can be made with oat, almond, or soy milk.">
+            <img src="images/flat white.jpeg" alt="Flat White">
+            <div class="card-content">
+              <p class="product-title">Flat White</p>
+              <p class="product-one-liner">Velvety micro-foam with a smooth espresso base.</p>
+              <p class="tasting-notes" style="font-size: 0.9rem; margin-bottom: 10px; color: #5a2d2d;"><strong>Flavour
+                  Notes:</strong> Creamy, Bold Coffee, Sweet Milk</p>
+              <p class="price">&pound;4.20</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="card product-card product-card-horizontal" data-id="cup-3" data-name="Cappuccino"
+            data-price="4.20" data-image="images/cappuccino.jpeg"
+            data-short="Classic thirds of espresso, steam, and foam perfection."
+            data-description="A traditional Cappuccino prepared in equal thirds — our Dark Roast espresso, steamed milk, and thick dry foam. Rich, bold, and satisfying with a deep cocoa undertone and a beautifully airy top layer."
+            data-usage="Served in a 180ml ceramic cup. Foam is velvety and thick. Dusted with cocoa powder on request.">
+            <img src="images/cappuccino.jpeg" alt="Cappuccino">
+            <div class="card-content">
+              <p class="product-title">Cappuccino</p>
+              <p class="product-one-liner">Classic thirds of espresso, steam, and foam perfection.</p>
+              <p class="tasting-notes" style="font-size: 0.9rem; margin-bottom: 10px; color: #5a2d2d;"><strong>Flavour
+                  Notes:</strong> Cocoa, Bold, Airy Foam</p>
+              <p class="price">&pound;4.20</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card product-card-horizontal" data-id="cup-4" data-name="Latte" data-price="4.50"
+            data-image="images/latte.jpeg" data-short="Smooth espresso with a generous pour of steamed milk."
+            data-description="Our Latte is a generous, comforting cup using Colombian Roast espresso layered with steamed full-cream milk and a light foam layer. Ideal for those who love a milder, milkier coffee experience."
+            data-usage="Served in a 250ml glass or cup. Available iced or hot. Milk of choice on request.">
+            <img src="images/latte.jpeg" alt="Latte">
+            <div class="card-content">
+              <p class="product-title">Latte</p>
+              <p class="product-one-liner">Smooth espresso with a generous pour of steamed milk.</p>
+              <p class="tasting-notes" style="font-size: 0.9rem; margin-bottom: 10px; color: #5a2d2d;"><strong>Flavour
+                  Notes:</strong> Mild Coffee, Caramel, Creamy Milk</p>
+              <p class="price">&pound;4.50</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card product-card-horizontal" data-id="cup-5" data-name="Cold Brew"
+            data-price="5.00" data-image="images/cold brew.jpeg"
+            data-short="Slow-steeped for 18 hours — smooth, bold, and ice cold."
+            data-description="Our Cold Brew is steeped for 18 hours using coarsely ground single-origin beans, producing an ultra-smooth, low-acidity concentrate. Served over ice, it delivers a naturally sweet, full-bodied coffee hit without any bitterness."
+            data-usage="Served in a 350ml glass over ice. Dairy-free by default. Oat or almond milk available on request.">
+            <img src="images/cold brew.jpeg" alt="Cold Brew">
+            <div class="card-content">
+              <p class="product-title">Cold Brew</p>
+              <p class="product-one-liner">Slow-steeped for 18 hours — smooth, bold, and ice cold.</p>
+              <p class="tasting-notes" style="font-size: 0.9rem; margin-bottom: 10px; color: #5a2d2d;"><strong>Flavour
+                  Notes:</strong> Dark Chocolate, Brown Sugar, Smooth &amp; Refreshing</p>
+              <p class="price">&pound;5.00</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+
+          <article class="card product-card product-card-horizontal" data-id="cup-6" data-name="Dirty Chai"
+            data-price="5.50" data-image="images/dirty chai.jpeg"
+            data-short="Spiced chai latte with a bold espresso kick."
+            data-description="The Dirty Chai combines our house-spiced chai blend — cinnamon, cardamom, ginger, and clove — with a double shot of espresso and steamed milk. The result is a warming, complex cup that bridges the gap between tea and coffee lovers."
+            data-usage="Served in a 280ml cup, hot. Can be made iced on request. Available with oat, almond, or soy milk.">
+            <img src="images/dirty chai.jpeg" alt="Dirty Chai">
+            <div class="card-content">
+              <p class="product-title">Dirty Chai</p>
+              <p class="product-one-liner">Spiced chai latte with a bold espresso kick.</p>
+              <p class="tasting-notes" style="font-size: 0.9rem; margin-bottom: 10px; color: #5a2d2d;"><strong>Flavour
+                  Notes:</strong> Cinnamon, Cardamom, Ginger, Bold Espresso</p>
+              <p class="price">&pound;5.50</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <div class="modal-backdrop" id="productModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <button class="close-btn" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="">
+        <div>
+          <p id="modalDescription"></p>
+          <p><strong>Serving Info:</strong> <span id="modalUsage"></span></p>
+          <p class="price" id="modalPrice"></p>
+          <button class="btn btn-primary" id="modalAddBtn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>About The Coffee Atelier</h3>
+        <p>Premium coffee blends, brewing equipment and curated workshops designed to bring coffee lovers together.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="beans.html">Coffee Beans</a>
+          <a href="coffee.html">Coffee Cups</a>
+          <a href="equipment.html">Brewing Equipment</a>
+          <a href="events.html">Events</a>
+          <a href="offers.html">Special Offers</a>
+        </div>
+      </div>
+      <div>
+        <h3>Contact Us</h3>
+        <div class="footer-contact">
+          <p>Email: info@thecoffeeatelier.com</p>
+          <p>Phone: +44 07135 43210</p>
+          <p>London, United Kingdom</p>
+        </div>
+      </div>
+      <div>
+        <h3>Subscribe</h3>
+        <form class="footer-subscribe">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="button" class="btn btn-gold" onclick="alert('Thanks for subscribing!')">Subscribe</button>
+        </form>
+        <div class="footer-social">
+          <a class="social-icon" href="#" aria-label="Facebook"><img src="images/facebook.svg" alt="Facebook"></a>
+          <a class="social-icon" href="#" aria-label="Instagram"><img src="images/instagram.svg" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 The Coffee Atelier | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/atelier.js"></script>
+  <script>
+    function setResponsiveViewport() {
+      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
+    }
+    setResponsiveViewport();
+    window.addEventListener("resize", setResponsiveViewport);
+
+    function getCart() {
+      return JSON.parse(sessionStorage.getItem("cartItems") || "[]");
+    }
+    function saveCart(cart) {
+      Atelier.saveCart(cart);
+    }
+    function updateBadge() {
+      const count = getCart().reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById("cartBadge").textContent = count;
+    }
+
+    function addToCart(product, qtyToAdd) {
+      if (!Atelier.requireLogin()) return false;
+      const qty = Number(qtyToAdd) > 0 ? Number(qtyToAdd) : 1;
+      const cart = getCart();
+      const existing = cart.find((item) => item.id === product.id);
+      if (existing) existing.qty += qty;
+      else cart.push({ ...product, qty });
+      saveCart(cart);
+      updateBadge();
+      return true;
+    }
+
+    function getProductFromCard(card) {
+      return {
+        id: card.dataset.id,
+        name: card.dataset.name,
+        price: Number(card.dataset.price),
+        image: card.dataset.image,
+        description: card.dataset.description,
+        usage: card.dataset.usage
+      };
+    }
+
+    const cupGrid = document.getElementById("cupGrid");
+    const cupSearch = document.getElementById("cupSearch");
+    const cupSearchEmpty = document.getElementById("cupSearchEmpty");
+    const modal = document.getElementById("productModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalImage = document.getElementById("modalImage");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalUsage = document.getElementById("modalUsage");
+    const modalPrice = document.getElementById("modalPrice");
+    const modalAddBtn = document.getElementById("modalAddBtn");
+    let selectedProduct = null;
+
+    cupGrid.addEventListener("click", (event) => {
+      const target = event.target;
+      const button = target.closest("button");
+      const img = target.closest("img");
+
+      if (!button && !img) return;
+
+      const card = target.closest(".product-card");
+      if (!card) return;
+
+      const product = getProductFromCard(card);
+      if (button && button.dataset.action === "add") {
+        addToCart(product, 1);
+        return;
+      }
+
+      if ((button && button.dataset.action === "view") || img) {
+        selectedProduct = product;
+        modalTitle.textContent = product.name;
+        modalImage.src = product.image;
+        modalImage.alt = product.name;
+        modalDescription.textContent = product.description;
+        modalUsage.textContent = product.usage;
+        modalPrice.innerHTML = `&pound;${product.price.toFixed(2)}`;
+        modal.classList.add("show");
+      }
+    });
+
+    function filterCupProducts(query) {
+      const normalized = query.trim().toLowerCase();
+      const cards = Array.from(cupGrid.querySelectorAll(".product-card"));
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const name = (card.dataset.name || "").toLowerCase();
+        const shortText = (card.dataset.short || "").toLowerCase();
+        const description = (card.dataset.description || "").toLowerCase();
+        const matches = !normalized || name.includes(normalized) || shortText.includes(normalized) || description.includes(normalized);
+
+        card.style.display = matches ? "" : "none";
+        if (matches) visibleCount += 1;
+      });
+
+      cupSearchEmpty.hidden = visibleCount > 0;
+    }
+
+    cupSearch.addEventListener("input", () => {
+      filterCupProducts(cupSearch.value);
+    });
+
+    modalAddBtn.addEventListener("click", () => {
+      if (!selectedProduct) return;
+      if (addToCart(selectedProduct, 1)) {
+        modal.classList.remove("show");
+      }
+    });
+
+    document.getElementById("closeModal").addEventListener("click", () => modal.classList.remove("show"));
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) modal.classList.remove("show");
+    });
+
+    updateBadge();
+
+    const fadeElements = document.querySelectorAll("main > section:not(:first-of-type)");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    fadeElements.forEach(el => {
+      el.classList.add("fade-in-up");
+      observer.observe(el);
+    });
+  </script>
+</body>
+
+</html>

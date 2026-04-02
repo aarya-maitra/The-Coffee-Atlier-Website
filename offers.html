@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coffee Atelier | Offers & Subscription</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="The Coffee Atelier logo"><span>The Coffee Atelier</span></a>
+      <div class="nav-wrap">
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <div class="nav-dropdown">
+            <span class="nav-dropdown-toggle">Coffee</span>
+            <div class="nav-dropdown-menu">
+              <a href="beans.html">Beans</a>
+              <a href="coffee.html">Coffee</a>
+            </div>
+          </div>
+          <a href="equipment.html">Equipment</a>
+          <a class="active" href="offers.html">Offers &amp; Subscription</a>
+          <a href="events.html">Events &amp; Workshops</a>
+          <a href="signup.html">Register</a>
+          <a href="login.html">Login</a>
+        </nav>
+        <a class="cart-link" href="cart.html" aria-label="Cart">
+          <span>&#128722;</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <h1 class="section-title">Offers & Subscription Plans</h1>
+        <p class="section-subtext">Choose your ritual. Save on monthly coffee and unlock exclusive event perks.</p>
+        <div class="offers-grid">
+          <article class="card offer-card" data-id="sub-starter" data-name="Starter Subscription Plan" data-price="24">
+            <h3>Starter Plan</h3>
+            <p>2 coffee packs / month</p>
+            <p class="offer-price">&pound;24</p>
+            <p>Perfect for casual brewers.</p>
+            <button class="btn btn-primary subscribe-btn">Subscribe</button>
+          </article>
+          <article class="card offer-card" style="border: 2px solid var(--highlight);" data-id="sub-atelier" data-name="Atelier Subscription Plan" data-price="44">
+            <h3>Atelier Plan</h3>
+            <p>4 coffee packs / month</p>
+            <p class="offer-price">&pound;44</p>
+            <p>Free shipping + 1 workshop credit.</p>
+            <button class="btn btn-secondary subscribe-btn">Subscribe</button>
+          </article>
+          <article class="card offer-card" data-id="sub-collector" data-name="Collector Subscription Plan" data-price="62">
+            <h3>Collector Plan</h3>
+            <p>6 premium packs / month</p>
+            <p class="offer-price">&pound;62</p>
+            <p>Includes rare micro-lot selections.</p>
+            <button class="btn btn-primary subscribe-btn">Subscribe</button>
+          </article>
+        </div>
+
+        <div class="form-card" style="margin-top: 26px;">
+          <h2 class="section-title" style="font-size: 1.7rem;">Special Codes</h2>
+          <p>Use <strong>FIRSTORDER</strong> on cart page for 10% off your first order.</p>
+          <p>Seasonal bundle discounts are updated monthly.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="modal-backdrop" id="coffeePickerModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="coffeePickerTitle">Choose Your Coffees</h3>
+        <button class="close-btn" id="closeCoffeePicker">&times;</button>
+      </div>
+      <div class="modal-body" style="grid-template-columns: 1fr;">
+        <p id="coffeePickerHint" style="margin: 0 0 8px;">Select your coffees for this subscription.</p>
+        <div id="coffeePickerFields" style="display: grid; gap: 10px;"></div>
+        <p id="coffeePickerError" style="margin: 8px 0 0; color: #b3261e; min-height: 1.2em;"></p>
+        <div class="btn-row" style="justify-content: flex-end; margin-top: 6px;">
+          <button class="btn btn-outline" id="cancelCoffeePicker">Cancel</button>
+          <button class="btn btn-primary" id="confirmCoffeePicker">Add Subscription</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>About The Coffee Atelier</h3>
+        <p>Premium coffee blends, brewing equipment and curated workshops designed to bring coffee lovers together.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="beans.html">Coffee Beans</a>
+          <a href="coffee.html">Coffee Cups</a>
+          <a href="equipment.html">Brewing Equipment</a>
+          <a href="events.html">Events</a>
+          <a href="offers.html">Special Offers</a>
+        </div>
+      </div>
+      <div>
+        <h3>Contact Us</h3>
+        <div class="footer-contact">
+          <p>Email: info@thecoffeeatelier.com</p>
+          <p>Phone: +44 07135 43210</p>
+          <p>London, United Kingdom</p>
+        </div>
+      </div>
+      <div>
+        <h3>Subscribe</h3>
+        <form class="footer-subscribe">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="button" class="btn btn-gold" onclick="alert('Thanks for subscribing!')">Subscribe</button>
+        </form>
+        <div class="footer-social">
+          <a class="social-icon" href="#" aria-label="Facebook"><img src="images/facebook.svg" alt="Facebook"></a>
+          <a class="social-icon" href="#" aria-label="Instagram"><img src="images/instagram.svg" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 The Coffee Atelier | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/atelier.js"></script>
+  <script>
+    function setResponsiveViewport() {
+      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
+    }
+    setResponsiveViewport();
+    window.addEventListener("resize", setResponsiveViewport);
+
+    function getCart() {
+      return JSON.parse(sessionStorage.getItem("cartItems") || "[]");
+    }
+    function saveCart(cart) {
+      Atelier.saveCart(cart);
+    }
+    function updateBadge() {
+      const count = getCart().reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById("cartBadge").textContent = count;
+    }
+
+    function addToCart(item) {
+      if (!Atelier.requireLogin()) return false;
+      const cart = getCart();
+      const existing = cart.find((product) => product.id === item.id);
+      if (existing) existing.qty += 1;
+      else cart.push({ ...item, qty: 1 });
+      saveCart(cart);
+      updateBadge();
+      return true;
+    }
+    const coffeeChoices = [
+      "Ethiopian Roast",
+      "Dark Roast",
+      "Colombian Roast",
+      "Hazelnut Roast",
+      "Vanilla Fusion",
+      "Premium Decaf"
+    ];
+    const packetsByPlan = {
+      "sub-starter": 2,
+      "sub-atelier": 4,
+      "sub-collector": 6
+    };
+    const sizeOptions = ["250g", "500g"];
+    const sizePriceAdjustment = {
+      "250g": -1.5,
+      "500g": 1.5
+    };
+    const coffeePickerModal = document.getElementById("coffeePickerModal");
+    const coffeePickerTitle = document.getElementById("coffeePickerTitle");
+    const coffeePickerHint = document.getElementById("coffeePickerHint");
+    const coffeePickerFields = document.getElementById("coffeePickerFields");
+    const coffeePickerError = document.getElementById("coffeePickerError");
+    const closeCoffeePicker = document.getElementById("closeCoffeePicker");
+    const cancelCoffeePicker = document.getElementById("cancelCoffeePicker");
+    const confirmCoffeePicker = document.getElementById("confirmCoffeePicker");
+
+    let pendingPlan = null;
+
+    function openCoffeePicker(plan) {
+      pendingPlan = plan;
+      coffeePickerTitle.textContent = `${plan.name} - Choose ${plan.packets} Coffees`;
+      coffeePickerHint.textContent = `Pick ${plan.packets} coffee option(s) and size per pack (250g or 500g). Repeats are allowed. 250g lowers price by £1.50 per pack, 500g increases by £1.50 per pack.`;
+      coffeePickerError.textContent = "";
+      coffeePickerFields.innerHTML = "";
+
+      for (let i = 1; i <= plan.packets; i += 1) {
+        const field = document.createElement("div");
+        field.className = "field";
+        const coffeeSelectId = `coffeeChoice${i}`;
+        const sizeSelectId = `coffeeSize${i}`;
+        field.innerHTML = `
+          <label for="${coffeeSelectId}">Coffee ${i}</label>
+          <div style="display: grid; grid-template-columns: 1fr 120px; gap: 10px;">
+            <select id="${coffeeSelectId}" class="coffee-choice-select">
+              <option value="">Select coffee</option>
+              ${coffeeChoices.map((coffee) => `<option value="${coffee}">${coffee}</option>`).join("")}
+            </select>
+            <select id="${sizeSelectId}" class="coffee-size-select">
+              ${sizeOptions.map((size) => `<option value="${size}">${size}</option>`).join("")}
+            </select>
+          </div>
+        `;
+        coffeePickerFields.appendChild(field);
+      }
+
+      coffeePickerModal.classList.add("show");
+    }
+
+    function closePickerModal() {
+      coffeePickerModal.classList.remove("show");
+      pendingPlan = null;
+    }
+
+    function getSelectedCoffeePacksFromModal() {
+      if (!pendingPlan) return null;
+
+      const coffeeSelects = Array.from(coffeePickerFields.querySelectorAll(".coffee-choice-select"));
+      const sizeSelects = Array.from(coffeePickerFields.querySelectorAll(".coffee-size-select"));
+      if (coffeeSelects.length !== pendingPlan.packets || sizeSelects.length !== pendingPlan.packets) return null;
+
+      const selections = [];
+      for (let i = 0; i < pendingPlan.packets; i += 1) {
+        const coffee = coffeeSelects[i].value;
+        const size = sizeSelects[i].value;
+        if (!coffee || !size) return null;
+        selections.push({ coffee, size });
+      }
+
+      return selections;
+    }
+
+    function calculateAdjustedPlanPrice(basePrice, selectedPacks) {
+      const totalAdjustment = selectedPacks.reduce((sum, pack) => sum + (sizePriceAdjustment[pack.size] || 0), 0);
+      return Math.max(0, basePrice + totalAdjustment);
+    }
+
+    function getSizeMixSummary(selectedPacks) {
+      const sizeCount = selectedPacks.reduce((acc, pack) => {
+        acc[pack.size] = (acc[pack.size] || 0) + 1;
+        return acc;
+      }, {});
+      return sizeOptions
+        .filter((size) => sizeCount[size])
+        .map((size) => `${sizeCount[size]} x ${size}`)
+        .join(", ");
+    }
+
+    closeCoffeePicker.addEventListener("click", closePickerModal);
+    cancelCoffeePicker.addEventListener("click", closePickerModal);
+    coffeePickerModal.addEventListener("click", (event) => {
+      if (event.target === coffeePickerModal) closePickerModal();
+    });
+    confirmCoffeePicker.addEventListener("click", () => {
+      if (!pendingPlan) return;
+      const selectedCoffeePacks = getSelectedCoffeePacksFromModal();
+      if (!selectedCoffeePacks) {
+        coffeePickerError.textContent = `Please choose coffee and size for all ${pendingPlan.packets} packs before continuing.`;
+        return;
+      }
+
+      const adjustedPrice = calculateAdjustedPlanPrice(pendingPlan.price, selectedCoffeePacks);
+      const selectionKey = selectedCoffeePacks
+        .map((pack) => `${pack.coffee.toLowerCase()}-${pack.size.toLowerCase()}`)
+        .join("|");
+      const selectedPlan = {
+        id: `${pendingPlan.baseId}::${selectionKey}`,
+        baseId: pendingPlan.baseId,
+        name: pendingPlan.name,
+        price: adjustedPrice,
+        basePrice: pendingPlan.price,
+        monthlyPacks: pendingPlan.packets,
+        sizeMixSummary: getSizeMixSummary(selectedCoffeePacks),
+        image: "images/picture4.jpg",
+        selectedCoffees: selectedCoffeePacks.map((pack) => `${pack.coffee} (${pack.size})`),
+        selectedCoffeePacks
+      };
+      if (addToCart(selectedPlan)) {
+        closePickerModal();
+      }
+    });
+
+    function updateBadge() {
+      const count = getCart().reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById("cartBadge").textContent = count;
+    }
+
+    document.querySelectorAll(".subscribe-btn").forEach((button) => {
+      button.addEventListener("click", () => {
+        if (!Atelier.requireLogin()) return;
+        const card = button.closest(".offer-card");
+        if (!card) return;
+
+        openCoffeePicker({
+          baseId: card.dataset.id,
+          name: card.dataset.name,
+          price: Number(card.dataset.price),
+          packets: packetsByPlan[card.dataset.id] || 0
+        });
+      });
+    });
+
+    updateBadge();
+  </script>
+</body>
+</html>
+
+
+
+
+
+

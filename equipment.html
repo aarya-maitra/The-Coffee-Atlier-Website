@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coffee Atelier | Equipment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="top-banner">Get 10% off on first order with code FIRSTORDER</div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="The Coffee Atelier logo"><span>The Coffee Atelier</span></a>
+      <div class="nav-wrap">
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <div class="nav-dropdown">
+            <span class="nav-dropdown-toggle">Coffee</span>
+            <div class="nav-dropdown-menu">
+              <a href="beans.html">Beans</a>
+              <a href="coffee.html">Coffee</a>
+            </div>
+          </div>
+          <a class="active" href="equipment.html">Equipment</a>
+          <a href="offers.html">Offers &amp; Subscription</a>
+          <a href="events.html">Events &amp; Workshops</a>
+          <a href="signup.html">Register</a>
+          <a href="login.html">Login</a>
+        </nav>
+        <a class="cart-link" href="cart.html" aria-label="Cart">
+          <span>&#128722;</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="equipmentPage">
+    <section>
+      <div class="container">
+        <h1 class="section-title">Brewing Equipment</h1>
+        <p class="section-subtext">Luxury tools for precision extraction and premium home coffee rituals.</p>
+        <div class="catalog-tools">
+          <div class="catalog-search">
+            <label for="equipmentSearch" style="display: none;">Search equipment products</label>
+            <input id="equipmentSearch" class="search-input" type="search" placeholder="Search equipment by name or use case" aria-label="Search equipment products">
+          </div>
+          <p id="equipmentSearchEmpty" class="search-empty" hidden>No equipment products match your search.</p>
+        </div>
+
+        <article class="featured-block product-card" data-id="equip-2" data-name="Espresso Machine" data-price="1290.00" data-image="images/espresso-machine.png" data-description="Our flagship Espresso Machine delivers stable pressure profiling, dual-boiler thermal precision, and professional steam control for cafe-grade extraction at home. Built with premium steel internals and handcrafted detailing." data-usage="Use fresh fine grind, dose 18-20g, tamp evenly, then extract a 1:2 espresso ratio in 25-30 seconds. Purge and steam milk at 60-65C for optimal texture.">
+          <img src="images/espresso-machine.png" alt="Espresso Machine">
+          <div>
+            <span class="featured-tag">Highest Sold Equipment</span>
+            <h2 class="section-title" style="margin: 0 0 8px; font-size: clamp(1.6rem, 3vw, 2.2rem);">Espresso Machine</h2>
+            <p class="product-one-liner">Professional-grade extraction, dual boiler precision, and elegant stainless finish.</p>
+            <p class="price">&pound;1290.00</p>
+            <div class="btn-row">
+              <button class="btn btn-outline" data-action="view">View</button>
+              <button class="btn btn-primary" data-action="add">Add to Cart</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Our Collection</h2>
+        <div class="collection-grid" id="equipmentGrid">
+          <article class="card product-card product-card-horizontal" data-id="equip-1" data-name="French Press" data-price="145.00" data-image="images/french-press.png" data-description="An all-metal frame French Press with insulated walls for consistent heat retention and a cleaner body extraction. Designed for rich immersion coffee with long-lasting build quality." data-usage="Use coarse grind coffee. Ratio 1:15. Steep for 4 minutes, press slowly, and serve immediately to avoid over-extraction.">
+            <img src="images/french-press.png" alt="French Press">
+            <div class="card-content">
+              <p class="product-title">French Press</p>
+              <p class="product-one-liner">Heavy-duty immersion brewer with premium stainless filtration.</p>
+              <p class="price">&pound;145.00</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card product-card-horizontal" data-id="equip-3" data-name="AeroPress" data-price="180.00" data-image="images/aeropress.png" data-description="A travel-ready premium AeroPress kit engineered for clean body, smooth acidity, and repeatable extraction. Ideal for enthusiasts who want cafe-level quality with portability." data-usage="Use medium-fine grind. Brew inverted for 90 seconds, then press gently for 20-30 seconds. Excellent for concentrated shots and filter-style cups.">
+            <img src="images/aeropress.png" alt="AeroPress">
+            <div class="card-content">
+              <p class="product-title">AeroPress</p>
+              <p class="product-one-liner">Compact pressure brewer for silky and vibrant cups.</p>
+              <p class="price">&pound;180.00</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card product-card-horizontal" data-id="equip-4" data-name="Needle Distributor" data-price="135.00" data-image="images/needle-distributor.png" data-description="Precision-machined puck prep tool with calibrated needles to break clumps and distribute grounds evenly. Built for high-consistency espresso extraction and channeling prevention." data-usage="Use after dosing into portafilter. Stir gently for even bed distribution, then tamp level and extract your shot.">
+            <img src="images/needle-distributor.png" alt="Needle Distributor">
+            <div class="card-content">
+              <p class="product-title">Needle Distributor</p>
+              <p class="product-one-liner">Precision puck prep for balanced espresso extraction.</p>
+              <p class="price">&pound;135.00</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card product-card-horizontal" data-id="equip-5" data-name="Moka Pot" data-price="160.00" data-image="images/moka-pot.png" data-description="Premium stainless steel Moka Pot engineered for rich stovetop espresso-style coffee with controlled pressure and consistent flavor concentration." data-usage="Fill base with hot water below valve, add fine-medium grounds without tamping, assemble, and brew on low-medium heat until extraction finishes.">
+            <img src="images/moka-pot.png" alt="Moka Pot">
+            <div class="card-content">
+              <p class="product-title">Moka Pot</p>
+              <p class="product-one-liner">Classic stovetop brewer for bold concentrated coffee.</p>
+              <p class="price">&pound;160.00</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card product-card-horizontal" data-id="equip-6" data-name="Cold Brew Maker" data-price="210.00" data-image="images/cold-brew maker.png" data-description="Luxury glass-and-steel cold brew system designed for smooth low-acidity extraction and multi-serve storage with elegant countertop presentation." data-usage="Add coarse grounds and cold filtered water, steep for 14-18 hours in the refrigerator, then release through filter and serve over ice.">
+            <img src="images/cold-brew maker.png" alt="Cold Brew Maker">
+            <div class="card-content">
+              <p class="product-title">Cold Brew Maker</p>
+              <p class="product-one-liner">Slow-extraction brewer for smooth and mellow coffee.</p>
+              <p class="price">&pound;210.00</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card product-card-horizontal" data-id="equip-7" data-name="Coffee Grinder" data-price="320.00" data-image="images/coffee-grinder.png" data-description="Professional burr Coffee Grinder with stepless adjustment for espresso to filter ranges, delivering uniform particle size and superior extraction control." data-usage="Choose grind setting by brew method, weigh beans, grind fresh just before brewing, and fine-tune based on shot time or brew flow rate.">
+            <img src="images/coffee-grinder.png" alt="Coffee Grinder">
+            <div class="card-content">
+              <p class="product-title">Coffee Grinder</p>
+              <p class="product-one-liner">Precision burr grinder for consistent grind quality.</p>
+              <p class="price">&pound;320.00</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="productModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <button class="close-btn" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="">
+        <div>
+          <p id="modalDescription"></p>
+          <p><strong>How to Use:</strong> <span id="modalUsage"></span></p>
+          <p class="price" id="modalPrice"></p>
+          <button class="btn btn-primary" id="modalAddBtn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>About The Coffee Atelier</h3>
+        <p>Premium coffee blends, brewing equipment and curated workshops designed to bring coffee lovers together.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="beans.html">Coffee Beans</a>
+          <a href="coffee.html">Coffee Cups</a>
+          <a href="equipment.html">Brewing Equipment</a>
+          <a href="events.html">Events</a>
+          <a href="offers.html">Special Offers</a>
+        </div>
+      </div>
+      <div>
+        <h3>Contact Us</h3>
+        <div class="footer-contact">
+          <p>Email: info@thecoffeeatelier.com</p>
+          <p>Phone: +44 07135 43210</p>
+          <p>London, United Kingdom</p>
+        </div>
+      </div>
+      <div>
+        <h3>Subscribe</h3>
+        <form class="footer-subscribe">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="button" class="btn btn-gold" onclick="alert('Thanks for subscribing!')">Subscribe</button>
+        </form>
+        <div class="footer-social">
+          <a class="social-icon" href="#" aria-label="Facebook"><img src="images/facebook.svg" alt="Facebook"></a>
+          <a class="social-icon" href="#" aria-label="Instagram"><img src="images/instagram.svg" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 The Coffee Atelier | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/atelier.js"></script>
+  <script>
+    function setResponsiveViewport() {
+      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
+    }
+    setResponsiveViewport();
+    window.addEventListener("resize", setResponsiveViewport);
+
+    function getCart() {
+      return JSON.parse(sessionStorage.getItem("cartItems") || "[]");
+    }
+    function saveCart(cart) {
+      Atelier.saveCart(cart);
+    }
+    function updateBadge() {
+      const count = getCart().reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById("cartBadge").textContent = count;
+    }
+
+    function addToCart(product) {
+      if (!Atelier.requireLogin()) return false;
+      const cart = getCart();
+      const existing = cart.find((item) => item.id === product.id);
+      if (existing) existing.qty += 1;
+      else cart.push({ ...product, qty: 1 });
+      saveCart(cart);
+      updateBadge();
+      return true;
+    }
+
+    function getProductFromCard(card) {
+      return {
+        id: card.dataset.id,
+        name: card.dataset.name,
+        price: Number(card.dataset.price),
+        image: card.dataset.image,
+        description: card.dataset.description,
+        usage: card.dataset.usage
+      };
+    }
+
+    const equipmentPage = document.getElementById("equipmentPage");
+    const equipmentSearch = document.getElementById("equipmentSearch");
+    const equipmentSearchEmpty = document.getElementById("equipmentSearchEmpty");
+    const modal = document.getElementById("productModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalImage = document.getElementById("modalImage");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalUsage = document.getElementById("modalUsage");
+    const modalPrice = document.getElementById("modalPrice");
+    const modalAddBtn = document.getElementById("modalAddBtn");
+    let selectedProduct = null;
+
+    equipmentPage.addEventListener("click", (event) => {
+      const target = event.target;
+      const button = target.closest("button");
+      const img = target.closest("img");
+      
+      if (!button && !img) return;
+
+      const card = target.closest(".product-card");
+      if (!card) return;
+
+      const product = getProductFromCard(card);
+      if (button && button.dataset.action === "add") {
+        addToCart(product);
+        return;
+      }
+
+      if ((button && button.dataset.action === "view") || img) {
+        selectedProduct = product;
+        modalTitle.textContent = product.name;
+        modalImage.src = product.image;
+        modalImage.alt = product.name;
+        modalDescription.textContent = product.description;
+        modalUsage.textContent = product.usage;
+        modalPrice.innerHTML = `&pound;${product.price.toFixed(2)}`;
+        modal.classList.add("show");
+      }
+    });
+
+    function getEquipmentSearchText(card) {
+      const titleEl = card.querySelector(".product-title, .section-title");
+      const oneLinerEl = card.querySelector(".product-one-liner");
+      const name = (card.dataset.name || (titleEl ? titleEl.textContent : "") || "").toLowerCase();
+      const oneLiner = (oneLinerEl ? oneLinerEl.textContent : "").toLowerCase();
+      const description = (card.dataset.description || "").toLowerCase();
+      return `${name} ${oneLiner} ${description}`;
+    }
+
+    function filterEquipmentProducts(query) {
+      const normalized = query.trim().toLowerCase();
+      const cards = Array.from(equipmentPage.querySelectorAll(".product-card"));
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const searchText = getEquipmentSearchText(card);
+        const matches = !normalized || searchText.includes(normalized);
+        card.style.display = matches ? "" : "none";
+        if (matches) visibleCount += 1;
+      });
+
+      equipmentSearchEmpty.hidden = visibleCount > 0;
+    }
+
+    equipmentSearch.addEventListener("input", () => {
+      filterEquipmentProducts(equipmentSearch.value);
+    });
+
+    modalAddBtn.addEventListener("click", () => {
+      if (!selectedProduct) return;
+      if (addToCart(selectedProduct)) {
+        modal.classList.remove("show");
+      }
+    });
+
+    document.getElementById("closeModal").addEventListener("click", () => modal.classList.remove("show"));
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) modal.classList.remove("show");
+    });
+
+    updateBadge();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+

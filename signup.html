@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coffee Atelier | Sign Up</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .signup-section .section-title {
+      text-align: center;
+    }
+
+    .signup-wrap {
+      max-width: 460px;
+      margin: 0 auto;
+    }
+
+    .signup-wrap .form-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .signup-wrap .field.full {
+      grid-column: auto;
+    }
+
+    .signup-wrap label {
+      font-size: 0.92rem;
+    }
+
+    .signup-wrap input {
+      padding: 8px 10px;
+      font-size: 0.92rem;
+    }
+
+    .signup-wrap .validation-list {
+      font-size: 0.82rem;
+      gap: 3px;
+      margin-top: 4px;
+    }
+
+    .signup-wrap .captcha-box {
+      gap: 8px;
+      display: grid;
+    }
+
+    .captcha-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .captcha-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px dashed rgba(90, 45, 45, 0.35);
+      background: rgba(234, 215, 197, 0.45);
+      color: var(--accent-secondary);
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-family: "Courier New", monospace;
+    }
+
+    .captcha-refresh {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid rgba(90, 45, 45, 0.22);
+      background: rgba(234, 215, 197, 0.65);
+      color: var(--accent-secondary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .captcha-refresh svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .captcha-refresh:hover,
+    .captcha-refresh:focus-visible {
+      background: rgba(234, 215, 197, 0.9);
+      border-color: rgba(90, 45, 45, 0.4);
+      transform: translateY(-1px);
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="The Coffee Atelier logo"><span>The Coffee
+          Atelier</span></a>
+      <div class="nav-wrap">
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <div class="nav-dropdown">
+            <span class="nav-dropdown-toggle">Coffee</span>
+            <div class="nav-dropdown-menu">
+              <a href="beans.html">Beans</a>
+              <a href="coffee.html">Coffee</a>
+            </div>
+          </div>
+          <a href="equipment.html">Equipment</a>
+          <a href="offers.html">Offers &amp; Subscription</a>
+          <a href="events.html">Events &amp; Workshops</a>
+          <a href="signup.html">Register</a>
+          <a href="login.html">Login</a>
+        </nav>
+        <a class="cart-link" href="cart.html" aria-label="Cart">
+          <span>&#128722;</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="signup-section">
+      <div class="container">
+        <h1 class="section-title">Create Your Atelier Account</h1>
+        <div class="form-card signup-wrap">
+          <form class="form-grid" id="signupForm" novalidate>
+            <div class="field">
+              <label for="firstName">First Name</label>
+              <input id="firstName" type="text" required>
+            </div>
+            <div class="field">
+              <label for="lastName">Last Name</label>
+              <input id="lastName" type="text" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" type="tel" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" required>
+            </div>
+            <div class="field">
+              <label for="username">Username</label>
+              <input id="username" type="text" required>
+            </div>
+            <div class="field full">
+              <label for="password">Password</label>
+              <input id="password" type="password" required>
+            </div>
+            <div class="field full">
+              <label for="confirmPassword">Confirm Password</label>
+              <input id="confirmPassword" type="password" required>
+            </div>
+            <div class="field full">
+              <ul class="validation-list" id="validationList">
+                <li id="ruleLength">Minimum 8 characters</li>
+                <li id="ruleUpper">At least one uppercase letter</li>
+                <li id="ruleLower">At least one lowercase letter</li>
+                <li id="ruleNumber">At least one number</li>
+                <li id="ruleSpecial">At least one special character (@ # % * !)</li>
+                <li id="ruleMatch">Passwords must match</li>
+              </ul>
+            </div>
+            <div class="field full captcha-box">
+              <label for="captchaInput">Security Check</label>
+              <div class="captcha-row">
+                <span class="captcha-chip" id="captchaQuestion">Loading captcha...</span>
+                <button type="button" class="captcha-refresh" id="refreshCaptcha" aria-label="Refresh captcha" title="Refresh captcha">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12a8 8 0 1 1-2.34-5.66M20 4v6h-6" />
+                  </svg>
+                </button>
+              </div>
+              <input id="captchaInput" type="text" placeholder="Enter the answer" required>
+            </div>
+            <div class="field full">
+              <button class="btn btn-primary" type="submit">Create Account</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>About The Coffee Atelier</h3>
+        <p>Premium coffee blends, brewing equipment and curated workshops designed to bring coffee lovers together.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="beans.html">Coffee Beans</a>
+          <a href="coffee.html">Coffee Cups</a>
+          <a href="equipment.html">Brewing Equipment</a>
+          <a href="events.html">Events</a>
+          <a href="offers.html">Special Offers</a>
+        </div>
+      </div>
+      <div>
+        <h3>Contact Us</h3>
+        <div class="footer-contact">
+          <p>Email: info@thecoffeeatelier.com</p>
+          <p>Phone: +44 07135 43210</p>
+          <p>London, United Kingdom</p>
+        </div>
+      </div>
+      <div>
+        <h3>Subscribe</h3>
+        <form class="footer-subscribe">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="button" class="btn btn-gold" onclick="alert('Thanks for subscribing!')">Subscribe</button>
+        </form>
+        <div class="footer-social">
+          <a class="social-icon" href="#" aria-label="Facebook"><img src="images/facebook.svg" alt="Facebook"></a>
+          <a class="social-icon" href="#" aria-label="Instagram"><img src="images/instagram.svg" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 The Coffee Atelier | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/atelier.js"></script>
+  <script>
+    function setResponsiveViewport() {
+      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
+    }
+    setResponsiveViewport();
+    window.addEventListener("resize", setResponsiveViewport);
+
+    Atelier.updateCartBadges();
+
+    const passwordInput = document.getElementById("password");
+    const confirmInput = document.getElementById("confirmPassword");
+    const form = document.getElementById("signupForm");
+    const captchaQuestion = document.getElementById("captchaQuestion");
+    const captchaInput = document.getElementById("captchaInput");
+    const refreshCaptcha = document.getElementById("refreshCaptcha");
+    const redirectTarget = new URLSearchParams(window.location.search).get("redirect") || "index.html";
+    let captchaAnswer = 0;
+
+    const rules = {
+      ruleLength: (pass) => pass.length >= 8,
+      ruleUpper: (pass) => /[A-Z]/.test(pass),
+      ruleLower: (pass) => /[a-z]/.test(pass),
+      ruleNumber: (pass) => /[0-9]/.test(pass),
+      ruleSpecial: (pass) => /[@#%*!]/.test(pass),
+      ruleMatch: (pass, confirm) => pass.length > 0 && pass === confirm
+    };
+
+    function validatePassword() {
+      const pass = passwordInput.value;
+      const confirm = confirmInput.value;
+      let isValid = true;
+
+      Object.entries(rules).forEach(([id, check]) => {
+        const valid = check(pass, confirm);
+        document.getElementById(id).classList.toggle("valid", valid);
+        if (!valid) isValid = false;
+      });
+      return isValid;
+    }
+
+    function generateCaptcha() {
+      const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+      let code = "";
+      for (let i = 0; i < 5; i += 1) {
+        code += alphabet[Math.floor(Math.random() * alphabet.length)];
+      }
+      captchaAnswer = code;
+      captchaQuestion.textContent = code.split("").join(" ");
+      captchaInput.value = "";
+      captchaInput.placeholder = "Type the code exactly";
+    }
+
+    passwordInput.addEventListener("input", validatePassword);
+    confirmInput.addEventListener("input", validatePassword);
+    refreshCaptcha.addEventListener("click", generateCaptcha);
+    generateCaptcha();
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!validatePassword()) {
+        alert("Please satisfy all password rules before signing up.");
+        return;
+      }
+
+      if (captchaInput.value.trim().toUpperCase() !== captchaAnswer) {
+        alert("Captcha answer is incorrect. Please try again.");
+        generateCaptcha();
+        return;
+      }
+
+      const firstName = document.getElementById("firstName").value.trim();
+      const lastName = document.getElementById("lastName").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const email = document.getElementById("email").value.trim().toLowerCase();
+      const username = document.getElementById("username").value.trim().toLowerCase();
+      const password = document.getElementById("password").value;
+      const users = Atelier.getUsers();
+
+      if (users.find((user) => user.username === username)) {
+        alert("That username is already taken. Please choose another.");
+        return;
+      }
+      if (users.find((user) => user.email === email)) {
+        alert("An account with that email already exists. Please log in instead.");
+        return;
+      }
+
+      users.push({ firstName, lastName, phone, email, username, password });
+      Atelier.saveUsers(users);
+
+      alert("Account created successfully! Please log in.");
+      window.location.href = `login.html?redirect=${encodeURIComponent(redirectTarget)}`;
+    });
+  </script>
+</body>
+
+</html>

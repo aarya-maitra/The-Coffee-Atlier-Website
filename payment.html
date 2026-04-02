@@ -1,0 +1,501 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coffee Atelier | Payment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .payment-layout {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .payment-card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(200, 162, 124, 0.32);
+      padding: 24px;
+    }
+
+    .payment-card h2 {
+      margin-bottom: 12px;
+    }
+
+    .payment-panel {
+      display: grid;
+      gap: 18px;
+    }
+
+    .order-lines {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .order-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(111, 78, 55, 0.14);
+    }
+
+    .payment-note {
+      margin: 0 0 14px;
+      color: var(--text-muted);
+      max-width: 64ch;
+    }
+
+    .payment-fields {
+      display: grid;
+      gap: 14px;
+    }
+
+    .payment-method-group {
+      display: grid;
+      gap: 14px;
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
+
+    .payment-method-group legend {
+      padding: 0;
+      margin: 0 0 6px;
+      font-family: "Playfair Display", Georgia, serif;
+      color: var(--accent-secondary);
+      font-size: 1.08rem;
+      font-weight: 700;
+    }
+
+    .method-help {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.93rem;
+    }
+
+    .card-fields {
+      display: grid;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(111, 78, 55, 0.12);
+    }
+
+    .payment-method-select {
+      width: 100%;
+      border: 1px solid rgba(111, 78, 55, 0.25);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: #fff;
+      font: inherit;
+    }
+
+    .payment-method-note {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.93rem;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .method-input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .method-option {
+      display: grid;
+      gap: 4px;
+      min-height: 100%;
+      border: 1px solid rgba(111, 78, 55, 0.22);
+      border-radius: 14px;
+      background: #fff;
+      padding: 14px 12px;
+      text-align: left;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      font: inherit;
+      box-shadow: 0 1px 0 rgba(111, 78, 55, 0.04);
+    }
+
+    .method-option strong {
+      color: var(--accent-secondary);
+      margin: 0;
+    }
+
+    .method-option span {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .method-option.active {
+      border-color: var(--highlight);
+      box-shadow: 0 10px 20px rgba(111, 78, 55, 0.12);
+      transform: translateY(-1px);
+      background: rgba(234, 215, 197, 0.4);
+    }
+
+    .address-fields {
+      display: grid;
+      gap: 14px;
+      padding: 16px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(111, 78, 55, 0.12);
+    }
+
+    .address-fields textarea {
+      resize: none;
+      overflow-y: auto;
+      min-height: 92px;
+      font-size: inherit;
+      line-height: 1.55;
+    }
+
+    .card-fields[hidden],
+    .address-fields[hidden] {
+      display: none !important;
+    }
+
+    .method-input:focus-visible + .method-option {
+      outline: 3px solid rgba(90, 45, 45, 0.2);
+      outline-offset: 2px;
+    }
+
+    .payment-summary {
+      display: grid;
+      gap: 16px;
+      position: sticky;
+      top: 100px;
+    }
+
+    .summary-shell {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.45);
+      border: 1px solid rgba(111, 78, 55, 0.12);
+    }
+
+    .summary-row strong {
+      color: var(--accent-secondary);
+    }
+
+    @media (max-width: 900px) {
+      .payment-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .payment-summary {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .method-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="The Coffee Atelier logo"><span>The Coffee Atelier</span></a>
+      <div class="nav-wrap">
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <div class="nav-dropdown">
+            <span class="nav-dropdown-toggle">Coffee</span>
+            <div class="nav-dropdown-menu">
+              <a href="beans.html">Beans</a>
+              <a href="coffee.html">Coffee</a>
+            </div>
+          </div>
+          <a href="equipment.html">Equipment</a>
+          <a href="offers.html">Offers &amp; Subscription</a>
+          <a href="events.html">Events &amp; Workshops</a>
+          <a href="signup.html">Register</a>
+          <a href="login.html">Login</a>
+        </nav>
+        <a class="cart-link" href="cart.html" aria-label="Cart">
+          <span>&#128722;</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <h1 class="section-title">Payment</h1>
+        <p class="payment-note">Complete your payment to place the order. Logged-in users can use FIRSTORDER once for their first purchase.</p>
+        <div class="payment-layout">
+          <div class="payment-card">
+            <h2 class="section-title" style="font-size: 1.6rem; margin-bottom: 16px;">Payment Details</h2>
+            <form id="paymentForm" class="payment-panel">
+              <fieldset class="payment-method-group">
+                <legend>Payment Method</legend>
+                <p class="method-help" id="paymentMethodHelp">Pick the option that works best for you. The form below updates automatically.</p>
+                <div class="method-grid" id="paymentMethods" role="radiogroup" aria-describedby="paymentMethodHelp paymentMethodNote">
+                  <div>
+                    <input class="method-input" type="radio" name="paymentMethod" id="methodCash" value="cash">
+                    <label class="method-option" for="methodCash">
+                      <strong>Cash on Delivery</strong>
+                      <span>Pay when your order arrives</span>
+                    </label>
+                  </div>
+                  <div>
+                    <input class="method-input" type="radio" name="paymentMethod" id="methodCredit" value="credit">
+                    <label class="method-option" for="methodCredit">
+                      <strong>Credit Card</strong>
+                      <span>Enter your card details securely</span>
+                    </label>
+                  </div>
+                  <div>
+                    <input class="method-input" type="radio" name="paymentMethod" id="methodDebit" value="debit">
+                    <label class="method-option" for="methodDebit">
+                      <strong>Debit Card</strong>
+                      <span>Pay directly from your bank card</span>
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+              <p class="payment-method-note" id="paymentMethodNote" aria-live="polite">Choose a payment method to continue.</p>
+
+              <div class="address-fields" id="addressFields" hidden>
+                <div class="field full">
+                  <label for="address">Address</label>
+                  <textarea id="address" rows="3" placeholder="House number, street, city, postcode" autocomplete="street-address"></textarea>
+                </div>
+              </div>
+
+              <div class="card-fields" id="cardFields" hidden>
+                <div class="field full">
+                  <label for="cardName">Cardholder Name</label>
+                  <input id="cardName" type="text" autocomplete="cc-name">
+                </div>
+                <div class="field full">
+                  <label for="cardNumber">Card Number</label>
+                  <input id="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" maxlength="19" placeholder="1234 5678 9012 3456">
+                </div>
+                <div class="field">
+                  <label for="expiry">Expiry</label>
+                  <input id="expiry" type="text" placeholder="MM/YY" autocomplete="cc-exp" maxlength="5">
+                </div>
+                <div class="field">
+                  <label for="cvv">CVV</label>
+                  <input id="cvv" type="password" inputmode="numeric" autocomplete="cc-csc" maxlength="4">
+                </div>
+              </div>
+              <div class="field full">
+                <button class="btn btn-primary" type="submit" style="width: 100%;" id="payButton" disabled>Select Payment Method</button>
+              </div>
+            </form>
+          </div>
+
+          <aside class="payment-card payment-summary" aria-label="Order summary">
+            <h2 class="section-title" style="font-size: 1.6rem; margin-bottom: 0;">Order Summary</h2>
+            <div class="summary-shell">
+              <div id="orderItems" class="order-lines"></div>
+              <div>
+                <div class="summary-row"><span>Subtotal</span><span id="summarySubtotal">£0.00</span></div>
+                <div class="summary-row"><span>Discount</span><span id="summaryDiscount">£0.00</span></div>
+                <div class="summary-row"><strong>Total</strong><strong id="summaryTotal">£0.00</strong></div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>About The Coffee Atelier</h3>
+        <p>Premium coffee blends, brewing equipment and curated workshops designed to bring coffee lovers together.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="beans.html">Coffee Beans</a>
+          <a href="coffee.html">Coffee Cups</a>
+          <a href="equipment.html">Brewing Equipment</a>
+          <a href="events.html">Events</a>
+          <a href="offers.html">Special Offers</a>
+        </div>
+      </div>
+      <div>
+        <h3>Contact Us</h3>
+        <div class="footer-contact">
+          <p>Email: info@thecoffeeatelier.com</p>
+          <p>Phone: +44 07135 43210</p>
+          <p>London, United Kingdom</p>
+        </div>
+      </div>
+      <div>
+        <h3>Subscribe</h3>
+        <form class="footer-subscribe">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="button" class="btn btn-gold" onclick="alert('Thanks for subscribing!')">Subscribe</button>
+        </form>
+        <div class="footer-social">
+          <a class="social-icon" href="#" aria-label="Facebook"><img src="images/facebook.svg" alt="Facebook"></a>
+          <a class="social-icon" href="#" aria-label="Instagram"><img src="images/instagram.svg" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 The Coffee Atelier | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/atelier.js"></script>
+  <script>
+    function setResponsiveViewport() {
+      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
+    }
+    setResponsiveViewport();
+    window.addEventListener("resize", setResponsiveViewport);
+
+    const draft = Atelier.getCheckoutDraft();
+    if (!draft) {
+      window.location.href = "cart.html";
+    } else {
+      const paymentMethods = document.getElementById("paymentMethods");
+      const methodOptions = Array.from(document.querySelectorAll(".method-option"));
+      const paymentMethodInputs = Array.from(document.querySelectorAll('input[name="paymentMethod"]'));
+      const paymentMethodNote = document.getElementById("paymentMethodNote");
+      const addressFields = document.getElementById("addressFields");
+      const addressInput = document.getElementById("address");
+      const cardFields = document.getElementById("cardFields");
+      const payButton = document.getElementById("payButton");
+      const orderItems = document.getElementById("orderItems");
+      const summarySubtotal = document.getElementById("summarySubtotal");
+      const summaryDiscount = document.getElementById("summaryDiscount");
+      const summaryTotal = document.getElementById("summaryTotal");
+      let selectedMethod = document.querySelector('input[name="paymentMethod"]:checked')?.value || "";
+
+      function updatePaymentMethodUI() {
+        const hasSelection = Boolean(selectedMethod);
+        const isCash = selectedMethod === "cash";
+        methodOptions.forEach((option) => {
+          const input = option.previousElementSibling;
+          const isActive = input && input.value === selectedMethod;
+          option.classList.toggle("active", isActive);
+          if (input) {
+            input.checked = isActive;
+          }
+        });
+        addressFields.hidden = !hasSelection;
+        cardFields.hidden = !hasSelection || isCash;
+        cardFields.setAttribute("aria-hidden", String(!hasSelection || isCash));
+        addressFields.setAttribute("aria-hidden", String(!hasSelection));
+        if (isCash) {
+          document.getElementById("cardName").value = "";
+          document.getElementById("cardNumber").value = "";
+          document.getElementById("expiry").value = "";
+          document.getElementById("cvv").value = "";
+        }
+        payButton.disabled = !hasSelection;
+        paymentMethodNote.textContent = !hasSelection
+          ? "Choose a payment method to continue."
+          : isCash
+          ? "Cash on Delivery selected. Add your address and checkout."
+          : `You are paying with a ${selectedMethod === "credit" ? "Credit Card" : "Debit Card"}. Please enter your address and card details.`;
+        payButton.textContent = !hasSelection ? "Select Payment Method" : (isCash ? "Checkout" : "Pay Now");
+      }
+
+      function renderSummary() {
+        const items = Array.isArray(draft.items) ? draft.items : [];
+        orderItems.innerHTML = items.map((item) => `
+          <div class="order-line">
+            <span>${item.name} x ${item.qty}</span>
+            <span>£${(item.price * item.qty).toFixed(2)}</span>
+          </div>
+        `).join("");
+        summarySubtotal.textContent = `£${Number(draft.subtotal || 0).toFixed(2)}`;
+        summaryDiscount.textContent = `£${Number(draft.discount || 0).toFixed(2)}`;
+        summaryTotal.textContent = `£${Number(draft.total || 0).toFixed(2)}`;
+        Atelier.updateCartBadges();
+      }
+
+      function completeOrder() {
+        const currentUser = Atelier.getCurrentUser();
+        if (currentUser && String(draft.discountCode || "").toUpperCase() === "FIRSTORDER" && Number(draft.discountRate || 0) > 0) {
+          Atelier.markFirstOrderUsed(currentUser);
+        }
+
+        Atelier.clearCheckoutDraft();
+        Atelier.clearDiscount();
+        Atelier.clearCart();
+        Atelier.updateCartBadges();
+        alert("Payment successful. Your order has been placed.");
+        window.location.href = "index.html";
+      }
+
+      document.getElementById("paymentForm").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const address = addressInput.value.trim();
+        if (!address) {
+          alert("Please enter your address.");
+          addressInput.focus();
+          return;
+        }
+
+        if (selectedMethod !== "cash") {
+          const cardName = document.getElementById("cardName").value.trim();
+          const cardNumber = document.getElementById("cardNumber").value.replace(/\s+/g, "");
+          const expiry = document.getElementById("expiry").value.trim();
+          const cvv = document.getElementById("cvv").value.trim();
+
+          if (!cardName || cardNumber.length < 12 || cvv.length < 3 || !/^\d{2}\/\d{2}$/.test(expiry)) {
+            alert("Please enter valid card payment details.");
+            return;
+          }
+        }
+
+        completeOrder();
+      });
+
+      paymentMethods.addEventListener("click", (event) => {
+        const option = event.target.closest(".method-option");
+        if (!option) return;
+        const input = option.previousElementSibling;
+        selectedMethod = input ? input.value : "cash";
+        updatePaymentMethodUI();
+      });
+
+      paymentMethodInputs.forEach((input) => {
+        input.addEventListener("change", () => {
+          selectedMethod = input.value;
+          updatePaymentMethodUI();
+        });
+      });
+
+      renderSummary();
+      updatePaymentMethodUI();
+    }
+  </script>
+</body>
+</html>
+
+

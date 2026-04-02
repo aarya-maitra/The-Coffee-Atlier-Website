@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coffee Atelier | Coffee Beans</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="top-banner">Get 10% off on first order with code FIRSTORDER</div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="The Coffee Atelier logo"><span>The Coffee Atelier</span></a>
+      <div class="nav-wrap">
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <div class="nav-dropdown">
+            <span class="nav-dropdown-toggle active">Coffee</span>
+            <div class="nav-dropdown-menu">
+              <a class="active" href="beans.html">Beans</a>
+              <a href="coffee.html">Coffee</a>
+            </div>
+          </div>
+          <a href="equipment.html">Equipment</a>
+          <a href="offers.html">Offers &amp; Subscription</a>
+          <a href="events.html">Events &amp; Workshops</a>
+          <a href="signup.html">Register</a>
+          <a href="login.html">Login</a>
+        </nav>
+        <a class="cart-link" href="cart.html" aria-label="Cart">
+          <span>&#128722;</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="brew-section">
+          <div class="brew-head">
+            <h2>How to Turn Our Beans Into a Perfect Cup</h2>
+            <p>Brewing great coffee is a small ritual. Follow these simple steps and you will turn our beans into a cafe-quality cup at home.</p>
+          </div>
+          <div class="brew-steps">
+            <div class="brew-step">
+              <div class="brew-step-number">1</div>
+              <h4>Measure the Beans</h4>
+              <p>Use about 18-20g beans for one rich cup and a balanced extraction.</p>
+            </div>
+            <div class="brew-step">
+              <div class="brew-step-number">2</div>
+              <h4>Grind Fresh</h4>
+              <p>Grind just before brewing; medium grind works for most methods.</p>
+            </div>
+            <div class="brew-step">
+              <div class="brew-step-number">3</div>
+              <h4>Heat the Water</h4>
+              <p>Target 90-96C for sweetness and clarity without harsh bitterness.</p>
+            </div>
+            <div class="brew-step">
+              <div class="brew-step-number">4</div>
+              <h4>Brew Slowly</h4>
+              <p>Pour steadily in stages and let the coffee bloom for 30 seconds.</p>
+            </div>
+            <div class="brew-step">
+              <div class="brew-step-number">5</div>
+              <h4>Enjoy the Moment</h4>
+              <p>Serve warm in your favorite mug and enjoy the aroma and texture.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h1 class="section-title">Our Collection</h1>
+        <p class="section-subtext">Luxury single-origin and signature roasts crafted for a refined coffee experience.</p>
+        <div class="catalog-tools">
+          <div class="catalog-search">
+            <label for="coffeeSearch" style="display: none;">Search coffee products</label>
+            <input id="coffeeSearch" class="search-input" type="search" placeholder="Search coffee by name or flavor notes" aria-label="Search coffee products">
+          </div>
+          <p id="coffeeSearchEmpty" class="search-empty" hidden>No coffee products match your search.</p>
+        </div>
+        <div class="collection-grid" id="coffeeGrid">
+          <article class="card product-card product-card-horizontal" data-id="coffee-1" data-name="Ethiopian Roast" data-price="34.00" data-image="images/ethiopian-roast.png" data-short="Floral, tea-like roast with bright citrus finish." data-description="Our Ethiopian Roast is sourced from high-altitude heirloom varietals and roasted to highlight floral aromatics, bergamot brightness, and a delicate honey sweetness. It is elegant, clean, and layered for specialty drinkers." data-usage="Use 18g coffee to 300ml water at 93C. Ideal for pour-over and Chemex. Keep bloom at 30-40 seconds for maximum aroma.">
+            <img src="images/ethiopian-roast.png" alt="Ethiopian Roast">
+            <div class="card-content">
+              <p class="product-title">Ethiopian Roast</p>
+              <p class="product-one-liner">Floral, tea-like roast with bright citrus finish.</p>
+              <p class="tasting-notes" style="font-size: 0.9rem; margin-bottom: 10px; color: #5a2d2d;"><strong>Tasting Notes:</strong> Bergamot, Honey, Jasmine</p>
+              <p class="price">&pound;34.00</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card product-card-horizontal" data-id="coffee-2" data-name="Dark Roast" data-price="29.00" data-image="images/dark-roast.png" data-short="Bold and smoky with deep cocoa undertones." data-description="Dark Roast is a premium full-bodied profile designed for intensity lovers. Expect rich bittersweet chocolate, toasted caramel, and a long, velvety finish that pairs beautifully with milk or as a short black." data-usage="Best for espresso or moka pot. Dose 18-20g for a 1:2 ratio shot in 26-30 seconds. For French press, use coarse grind and 4-minute steep.">
+            <img src="images/dark-roast.png" alt="Dark Roast">
+            <div class="card-content">
+              <p class="product-title">Dark Roast</p>
+              <p class="product-one-liner">Bold and smoky with deep cocoa undertones.</p>
+              <p class="tasting-notes" style="font-size: 0.9rem; margin-bottom: 10px; color: #5a2d2d;"><strong>Tasting Notes:</strong> Bittersweet Chocolate, Toasted Caramel</p>
+              <p class="price">&pound;29.00</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card product-card-horizontal" data-id="coffee-3" data-name="Colombian Roast" data-price="35.00" data-image="images/colombian-roast.png" data-short="Balanced caramel sweetness with red fruit notes." data-description="Colombian Roast is selected from estate lots known for silky body and structured sweetness. This roast delivers red apple brightness, caramel depth, and a smooth finish suited for daily luxury brewing." data-usage="For V60, brew 20g to 320ml water at 92C. Medium grind, circular pours, and a total brew time near 2:45 for optimal clarity.">
+            <img src="images/colombian-roast.png" alt="Colombian Roast">
+            <div class="card-content">
+              <p class="product-title">Colombian Roast</p>
+              <p class="product-one-liner">Balanced caramel sweetness with red fruit notes.</p>
+              <p class="tasting-notes" style="font-size: 0.9rem; margin-bottom: 10px; color: #5a2d2d;"><strong>Tasting Notes:</strong> Red Apple, Caramel</p>
+              <p class="price">&pound;35.00</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card product-card-horizontal" data-id="coffee-4" data-name="Hazelnut Roast" data-price="31.00" data-image="images/hazelnut-roast.png" data-short="Nut-forward roast with praline and creamy body." data-description="Hazelnut Roast is a dessert-like luxury blend with roasted nut character, cocoa nib accents, and a creamy mouthfeel. It is crafted for indulgent cups without overwhelming bitterness." data-usage="Works beautifully as latte base. Pull 18g espresso into 36g output, then pair with textured milk. Also ideal for AeroPress with medium-fine grind.">
+            <img src="images/hazelnut-roast.png" alt="Hazelnut Roast">
+            <div class="card-content">
+              <p class="product-title">Hazelnut Roast</p>
+              <p class="product-one-liner">Nut-forward roast with praline and creamy body.</p>
+              <p class="tasting-notes" style="font-size: 0.9rem; margin-bottom: 10px; color: #5a2d2d;"><strong>Tasting Notes:</strong> Roasted Nut, Cocoa Nib, Praline</p>
+              <p class="price">&pound;31.00</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card product-card-horizontal" data-id="coffee-5" data-name="Vanilla Fusion" data-price="32.00" data-image="images/vanilla-fusion.png" data-short="Elegant vanilla aroma with rich mocha sweetness and flavour." data-description="Vanilla Fusion combines high-grade arabica with natural vanilla infusion for an aromatic, soft, and luxurious profile. It offers creamy sweetness, mocha depth, and smooth acidity for refined palates." data-usage="Ideal for slow drip or flat white. Use medium grind and 1:15 brew ratio. For milk coffee, keep extraction slightly longer for deeper sweetness.">
+            <img src="images/vanilla-fusion.png" alt="Vanilla Fusion">
+            <div class="card-content">
+              <p class="product-title">Vanilla Fusion</p>
+              <p class="product-one-liner">Elegant vanilla aroma with rich mocha sweetness and flavour.</p>
+              <p class="tasting-notes" style="font-size: 0.9rem; margin-bottom: 10px; color: #5a2d2d;"><strong>Tasting Notes:</strong> Vanilla, Mocha</p>
+              <p class="price">&pound;32.00</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card product-card product-card-horizontal" data-id="coffee-6" data-name="Premium Decaf" data-price="36.00" data-image="images/premium-decaf.png" data-short="Swiss-water decaf with dark chocolate smoothness." data-description="Premium Decaf uses a chemical-free process to retain aroma and complexity while removing caffeine. Expect dark chocolate, toasted almond, and a polished finish ideal for late-evening cups." data-usage="Brew as espresso, French press, or filter. Keep water at 92C and avoid over-extraction to preserve natural sweetness.">
+            <img src="images/premium-decaf.png" alt="Premium Decaf">
+            <div class="card-content">
+              <p class="product-title">Premium Decaf</p>
+              <p class="product-one-liner">Swiss-water decaf with dark chocolate smoothness.</p>
+              <p class="tasting-notes" style="font-size: 0.9rem; margin-bottom: 10px; color: #5a2d2d;"><strong>Tasting Notes:</strong> Dark Chocolate, Toasted Almond</p>
+              <p class="price">&pound;36.00</p>
+              <div class="btn-row">
+                <button class="btn btn-outline" data-action="view">View</button>
+                <button class="btn btn-primary" data-action="add">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="productModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <button class="close-btn" id="closeModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="">
+        <div>
+          <p id="modalDescription"></p>
+          <p><strong>How to Use:</strong> <span id="modalUsage"></span></p>
+          <p class="price" id="modalPrice"></p>
+          <button class="btn btn-primary" id="modalAddBtn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>About The Coffee Atelier</h3>
+        <p>Premium coffee blends, brewing equipment and curated workshops designed to bring coffee lovers together.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="beans.html">Coffee Beans</a>
+          <a href="coffee.html">Coffee Cups</a>
+          <a href="equipment.html">Brewing Equipment</a>
+          <a href="events.html">Events</a>
+          <a href="offers.html">Special Offers</a>
+        </div>
+      </div>
+      <div>
+        <h3>Contact Us</h3>
+        <div class="footer-contact">
+          <p>Email: info@thecoffeeatelier.com</p>
+          <p>Phone: +44 07135 43210</p>
+          <p>London, United Kingdom</p>
+        </div>
+      </div>
+      <div>
+        <h3>Subscribe</h3>
+        <form class="footer-subscribe">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="button" class="btn btn-gold" onclick="alert('Thanks for subscribing!')">Subscribe</button>
+        </form>
+        <div class="footer-social">
+          <a class="social-icon" href="#" aria-label="Facebook"><img src="images/facebook.svg" alt="Facebook"></a>
+          <a class="social-icon" href="#" aria-label="Instagram"><img src="images/instagram.svg" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 The Coffee Atelier | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/atelier.js"></script>
+  <script>
+    function setResponsiveViewport() {
+      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
+    }
+    setResponsiveViewport();
+    window.addEventListener("resize", setResponsiveViewport);
+
+    function getCart() {
+      return JSON.parse(sessionStorage.getItem("cartItems") || "[]");
+    }
+    function saveCart(cart) {
+      Atelier.saveCart(cart);
+    }
+    function updateBadge() {
+      const count = getCart().reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById("cartBadge").textContent = count;
+    }
+
+    function addToCart(product, qtyToAdd) {
+      if (!Atelier.requireLogin()) return false;
+      const qty = Number(qtyToAdd) > 0 ? Number(qtyToAdd) : 1;
+      const cart = getCart();
+      const existing = cart.find((item) => item.id === product.id);
+      if (existing) existing.qty += qty;
+      else cart.push({ ...product, qty });
+      saveCart(cart);
+      updateBadge();
+      return true;
+    }
+
+    function getProductFromCard(card) {
+      return {
+        id: card.dataset.id,
+        name: card.dataset.name,
+        price: Number(card.dataset.price),
+        image: card.dataset.image,
+        description: card.dataset.description,
+        usage: card.dataset.usage
+      };
+    }
+
+    const coffeeGrid = document.getElementById("coffeeGrid");
+    const coffeeSearch = document.getElementById("coffeeSearch");
+    const coffeeSearchEmpty = document.getElementById("coffeeSearchEmpty");
+    const modal = document.getElementById("productModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalImage = document.getElementById("modalImage");
+    const modalDescription = document.getElementById("modalDescription");
+    const modalUsage = document.getElementById("modalUsage");
+    const modalPrice = document.getElementById("modalPrice");
+    const modalAddBtn = document.getElementById("modalAddBtn");
+    let selectedProduct = null;
+
+    coffeeGrid.addEventListener("click", (event) => {
+      const target = event.target;
+      const button = target.closest("button");
+      const img = target.closest("img");
+      
+      if (!button && !img) return;
+
+      const card = target.closest(".product-card");
+      if (!card) return;
+
+      const product = getProductFromCard(card);
+      if (button && button.dataset.action === "add") {
+        const qtyInput = card.querySelector(".mini-qty");
+        addToCart(product, qtyInput ? qtyInput.value : 1);
+        return;
+      }
+
+      if ((button && button.dataset.action === "view") || img) {
+        selectedProduct = product;
+        modalTitle.textContent = product.name;
+        modalImage.src = product.image;
+        modalImage.alt = product.name;
+        modalDescription.textContent = product.description;
+        modalUsage.textContent = product.usage;
+        modalPrice.innerHTML = `&pound;${product.price.toFixed(2)}`;
+        modal.classList.add("show");
+      }
+    });
+
+    function filterCoffeeProducts(query) {
+      const normalized = query.trim().toLowerCase();
+      const cards = Array.from(coffeeGrid.querySelectorAll(".product-card"));
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const name = (card.dataset.name || "").toLowerCase();
+        const shortText = (card.dataset.short || "").toLowerCase();
+        const description = (card.dataset.description || "").toLowerCase();
+        const matches = !normalized || name.includes(normalized) || shortText.includes(normalized) || description.includes(normalized);
+
+        card.style.display = matches ? "" : "none";
+        if (matches) visibleCount += 1;
+      });
+
+      coffeeSearchEmpty.hidden = visibleCount > 0;
+    }
+
+    coffeeSearch.addEventListener("input", () => {
+      filterCoffeeProducts(coffeeSearch.value);
+    });
+
+    modalAddBtn.addEventListener("click", () => {
+      if (!selectedProduct) return;
+      if (addToCart(selectedProduct, 1)) {
+        modal.classList.remove("show");
+      }
+    });
+
+    document.getElementById("closeModal").addEventListener("click", () => modal.classList.remove("show"));
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) modal.classList.remove("show");
+    });
+
+    updateBadge();
+  </script>
+</body>
+</html>

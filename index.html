@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coffee Atelier | Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .welcome-modal {
+      max-width: 480px;
+    }
+
+    .welcome-modal-body {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding: 16px 18px 18px;
+    }
+
+    .welcome-modal-body p {
+      margin: 0;
+      color: var(--text-dark);
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-banner">Get 10% off on first order with code FIRSTORDER</div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="The Coffee Atelier logo"><span>The Coffee
+          Atelier</span></a>
+      <div class="nav-wrap">
+        <nav class="site-nav">
+          <a class="active" href="index.html">Home</a>
+          <div class="nav-dropdown">
+            <span class="nav-dropdown-toggle">Coffee</span>
+            <div class="nav-dropdown-menu">
+              <a href="beans.html">Beans</a>
+              <a href="coffee.html">Coffee</a>
+            </div>
+          </div>
+          <a href="equipment.html">Equipment</a>
+          <a href="offers.html">Offers &amp; Subscription</a>
+          <a href="events.html">Events &amp; Workshops</a>
+          <a href="signup.html">Register</a>
+          <a href="login.html">Login</a>
+        </nav>
+        <a class="cart-link" href="cart.html" aria-label="Cart">
+          <span>&#128722;</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="container">
+      <div class="hero">
+        <div class="slides" id="slides">
+          <div class="slide active" data-title="Single-Origin Ethiopian Coffee Beans"
+            data-description="Floral aroma, citrus brightness, and silky finish from our Ethiopian roast."
+            data-price="&pound;34.00" data-link="beans.html">
+            <img src="images/ethiopian-roast-banner.png" alt="Coffee artistry">
+          </div>
+
+          <div class="slide" data-title="Espresso Machine (Best Seller)"
+            data-description="Our premium espresso machine delivers café-quality shots with precision and consistency."
+            data-price="&pound;1290.00" data-link="equipment.html">
+            <img src="images/espresso-banner.png" alt="Espresso machine">
+          </div>
+
+          <div class="slide" data-title="Coffee Tasting Lab (Best Seller)"
+            data-description="Explore diverse coffee profiles and flavors in our curated tasting experience."
+            data-price="&pound;30.00" data-link="events.html">
+            <img src="images/coffee-tasting-banner.png" alt="Coffee tasting lab">
+          </div>
+        </div>
+        <div class="hero-overlay">
+          <div>
+            <h1>Where Art Meets Aroma</h1>
+            <p>Handcrafted brews, curated experiences, and a warm atelier space.</p>
+            <div class="featured-product" id="featuredProduct">
+              <p class="featured-kicker">Featured Product</p>
+              <h3 id="featuredTitle">Single-Origin Ethiopian Coffee Beans</h3>
+              <p id="featuredDesc">Floral aroma, citrus brightness, and silky finish from our Ethiopian roast.</p>
+              <div class="featured-row">
+                <span class="featured-price" id="featuredPrice">&pound;34.00</span>
+                <a class="btn btn-gold" id="featuredLink" href="beans.html">View Product</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-controls">
+          <button type="button" class="hero-arrow" id="prevSlide" aria-label="Previous slide">&#8592;</button>
+          <button type="button" class="hero-arrow" id="nextSlide" aria-label="Next slide">&#8594;</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Our Signature Experience</h2>
+        <div class="grid-3">
+          <article class="feature-card">
+            <img src="images/coffee.png" alt="Freshly brewed coffee">
+            <h3>Freshly Brewed</h3>
+            <p>Crafted in small batches daily for balanced aroma, body, and freshness in every cup.</p>
+          </article>
+          <article class="feature-card">
+            <img src="images/leaf.png" alt="Sustainable coffee sourcing">
+            <h3>Sustainably Sourced</h3>
+            <p>Ethically sourced beans from responsible farms that support quality, people, and the planet.</p>
+          </article>
+          <article class="feature-card">
+            <img src="images/paint-brush.png" alt="Artistic coffee making">
+            <h3>Artistry in Coffee</h3>
+            <p>From pour to presentation, each brew is prepared with precision, creativity, and care.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section style="background: #f5e4cf;">
+      <div class="container split">
+        <div class="about-box">
+          <h2 class="section-title">About The Coffee Atelier</h2>
+          <p>At The Coffee Atelier, coffee is a sensory canvas. Every cup is roasted, brewed, and served with attention
+            to craft. We blend modern brewing precision with timeless cafe warmth for a space that inspires
+            conversation, creativity, and comfort.</p>
+          <p>Join us for specialty pours, seasonal notes, and a mindful pause in your day.</p>
+        </div>
+        <img class="about-illustration" src="images/illustration.png" alt="Coffee atelier illustration">
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Highlights</h2>
+        <div class="infographic-grid">
+          <article class="infographic-card">
+            <img src="images/picture1.jpg" alt="Barista crafting coffee art">
+            <div class="infographic-content">
+              <h3>Art in Every Cup</h3>
+              <p class="info-stat">98% Customer Favorite</p>
+              <p>Our baristas combine precision and creativity to deliver a coffee experience that looks as beautiful as
+                it tastes.</p>
+            </div>
+          </article>
+          <article class="infographic-card">
+            <img src="images/picture2.jpg" alt="Cozy coffee corner seating">
+            <div class="infographic-content">
+              <h3>Cozy Atelier Space</h3>
+              <p class="info-stat">4.9/5 Ambience Rating</p>
+              <p>Warm interiors, calming lighting, and curated music create a comforting environment for work,
+                conversation, and pause.</p>
+            </div>
+          </article>
+          <article class="infographic-card">
+            <img src="images/picture3.jpg" alt="Craft coffee being served">
+            <div class="infographic-content">
+              <h3>Craft Service Promise</h3>
+              <p class="info-stat">Under 7-Minute Service</p>
+              <p>Each order is handcrafted with care while keeping service smooth and quick during both calm and peak
+                coffee hours.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">Visit Us</h2>
+        <div class="location-card">
+          <div class="location-layout">
+            <div class="location-details">
+              <p><strong>The Coffee Atelier</strong></p>
+              <p>17 Artisan Lane</p>
+              <p>Shoreditch</p>
+              <p>London, E1 6BX</p>
+              <p>United Kingdom</p>
+            </div>
+            <iframe title="The Coffee Atelier UK Location"
+              src="https://www.google.com/maps?q=Shoreditch%2C%20London&output=embed" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="welcomeModal">
+    <div class="modal welcome-modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Welcome</h3>
+        <button class="close-btn" id="closeWelcome">&times;</button>
+      </div>
+      <div class="modal-body welcome-modal-body">
+        <p>Create an account for quicker checkout and member offers.</p>
+        <p><strong>FIRSTORDER</strong> gives 10% off your first order.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="signup.html">Sign up</a>
+          <a class="btn btn-secondary" href="login.html">Log in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>About The Coffee Atelier</h3>
+        <p>Premium coffee blends, brewing equipment and curated workshops designed to bring coffee lovers together.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="beans.html">Coffee Beans</a>
+          <a href="coffee.html">Coffee Cups</a>
+          <a href="equipment.html">Brewing Equipment</a>
+          <a href="events.html">Events</a>
+          <a href="offers.html">Special Offers</a>
+        </div>
+      </div>
+      <div>
+        <h3>Contact Us</h3>
+        <div class="footer-contact">
+          <p>Email: info@thecoffeeatelier.com</p>
+          <p>Phone: +44 07135 43210</p>
+          <p>London, United Kingdom</p>
+        </div>
+      </div>
+      <div>
+        <h3>Subscribe</h3>
+        <form class="footer-subscribe">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="button" class="btn btn-gold" onclick="alert('Thanks for subscribing!')">Subscribe</button>
+        </form>
+        <div class="footer-social">
+          <a class="social-icon" href="#" aria-label="Facebook"><img src="images/facebook.svg" alt="Facebook"></a>
+          <a class="social-icon" href="#" aria-label="Instagram"><img src="images/instagram.svg" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 The Coffee Atelier | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/atelier.js"></script>
+  <script>
+    function setResponsiveViewport() {
+      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
+    }
+    setResponsiveViewport();
+    window.addEventListener("resize", setResponsiveViewport);
+
+    function getCart() {
+      return JSON.parse(sessionStorage.getItem("cartItems") || "[]");
+    }
+    function updateBadge() {
+      const count = getCart().reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById("cartBadge").textContent = count;
+    }
+    updateBadge();
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+    const prevSlideBtn = document.getElementById("prevSlide");
+    const nextSlideBtn = document.getElementById("nextSlide");
+    const featuredTitle = document.getElementById("featuredTitle");
+    const featuredDesc = document.getElementById("featuredDesc");
+    const featuredPrice = document.getElementById("featuredPrice");
+    const featuredLink = document.getElementById("featuredLink");
+    let slideTimer;
+
+    function updateFeaturedProduct(index) {
+      const activeSlide = slides[index];
+      featuredTitle.textContent = activeSlide.dataset.title;
+      featuredDesc.textContent = activeSlide.dataset.description;
+      featuredPrice.textContent = activeSlide.dataset.price;
+      featuredLink.href = activeSlide.dataset.link;
+    }
+
+    function showSlide(index) {
+      slides[currentSlide].classList.remove("active");
+      currentSlide = (index + slides.length) % slides.length;
+      slides[currentSlide].classList.add("active");
+      updateFeaturedProduct(currentSlide);
+    }
+
+    function startAutoSlide() {
+      clearInterval(slideTimer);
+      slideTimer = setInterval(() => {
+        showSlide(currentSlide + 1);
+      }, 3500);
+    }
+
+    prevSlideBtn.addEventListener("click", () => {
+      showSlide(currentSlide - 1);
+      startAutoSlide();
+    });
+
+    nextSlideBtn.addEventListener("click", () => {
+      showSlide(currentSlide + 1);
+      startAutoSlide();
+    });
+
+    updateFeaturedProduct(currentSlide);
+    startAutoSlide();
+
+    const welcomeModal = document.getElementById("welcomeModal");
+    const closeWelcome = document.getElementById("closeWelcome");
+    if (!Atelier.isLoggedIn()) {
+      setTimeout(() => {
+        welcomeModal.classList.add("show");
+      }, 800);
+    }
+    closeWelcome.addEventListener("click", () => welcomeModal.classList.remove("show"));
+    welcomeModal.addEventListener("click", (event) => {
+      if (event.target === welcomeModal) welcomeModal.classList.remove("show");
+    });
+
+    const fadeElements = document.querySelectorAll("main > section:not(:first-of-type)");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    fadeElements.forEach(el => {
+      el.classList.add("fade-in-up");
+      observer.observe(el);
+    });
+  </script>
+</body>
+
+</html>

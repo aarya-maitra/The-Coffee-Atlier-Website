@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coffee Atelier | Booking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="The Coffee Atelier logo"><span>The Coffee Atelier</span></a>
+      <div class="nav-wrap">
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <div class="nav-dropdown">
+            <span class="nav-dropdown-toggle">Coffee</span>
+            <div class="nav-dropdown-menu">
+              <a href="beans.html">Beans</a>
+              <a href="coffee.html">Coffee</a>
+            </div>
+          </div>
+          <a href="equipment.html">Equipment</a>
+          <a href="offers.html">Offers &amp; Subscription</a>
+          <a href="events.html">Events &amp; Workshops</a>
+          <a href="signup.html">Register</a>
+          <a href="login.html">Login</a>
+        </nav>
+        <a class="cart-link" href="cart.html" aria-label="Cart">
+          <span>&#128722;</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <h1 class="section-title">Reserve Your Seat</h1>
+        <div class="form-card">
+          <form id="bookingForm" class="form-grid">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" type="text" required>
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" required>
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input id="phone" type="tel" required>
+            </div>
+            <div class="field">
+              <label for="eventSelect">Event</label>
+              <select id="eventSelect" required>
+                <option value="">Select an event</option>
+                <option value="Coffee Making Basics">Coffee Making Basics</option>
+                <option value="Coffee Tasting Lab">Coffee Tasting Lab</option>
+                <option value="Pour Over Masterclass">Pour Over Masterclass</option>
+                <option value="Espresso Fundamentals">Espresso Fundamentals</option>
+                <option value="Latte Art Workshop">Latte Art Workshop</option>
+                <option value="Cold Brew and Iced Coffee Workshop">Cold Brew and Iced Coffee Workshop</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="eventDate">Date</label>
+              <input id="eventDate" type="date" readonly>
+            </div>
+            <div class="field full">
+              <button class="btn btn-primary" type="submit">Confirm Booking</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>About The Coffee Atelier</h3>
+        <p>Premium coffee blends, brewing equipment and curated workshops designed to bring coffee lovers together.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="beans.html">Coffee Beans</a>
+          <a href="coffee.html">Coffee Cups</a>
+          <a href="equipment.html">Brewing Equipment</a>
+          <a href="events.html">Events</a>
+          <a href="offers.html">Special Offers</a>
+        </div>
+      </div>
+      <div>
+        <h3>Contact Us</h3>
+        <div class="footer-contact">
+          <p>Email: info@thecoffeeatelier.com</p>
+          <p>Phone: +44 07135 43210</p>
+          <p>London, United Kingdom</p>
+        </div>
+      </div>
+      <div>
+        <h3>Subscribe</h3>
+        <form class="footer-subscribe">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="button" class="btn btn-gold" onclick="alert('Thanks for subscribing!')">Subscribe</button>
+        </form>
+        <div class="footer-social">
+          <a class="social-icon" href="#" aria-label="Facebook"><img src="images/facebook.svg" alt="Facebook"></a>
+          <a class="social-icon" href="#" aria-label="Instagram"><img src="images/instagram.svg" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 The Coffee Atelier | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/atelier.js"></script>
+  <script>
+    function setResponsiveViewport() {
+      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
+    }
+    setResponsiveViewport();
+    window.addEventListener("resize", setResponsiveViewport);
+
+    function getCart() {
+      return JSON.parse(sessionStorage.getItem("cartItems") || "[]");
+    }
+    function saveCart(cart) {
+      Atelier.saveCart(cart);
+    }
+    function updateBadge() {
+      const count = getCart().reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById("cartBadge").textContent = count;
+    }
+
+    function addToCart(item) {
+      if (!Atelier.requireLogin()) return false;
+      const cart = getCart();
+      const existing = cart.find((product) => product.id === item.id);
+      if (existing) existing.qty += 1;
+      else cart.push({ ...item, qty: 1 });
+      saveCart(cart);
+      updateBadge();
+      return true;
+    }
+
+    const eventDates = {
+      "Coffee Making Basics": "2026-04-08",
+      "Coffee Tasting Lab": "2026-04-14",
+      "Pour Over Masterclass": "2026-04-20",
+      "Espresso Fundamentals": "2026-04-24",
+      "Latte Art Workshop": "2026-04-27",
+      "Cold Brew and Iced Coffee Workshop": "2026-05-02"
+    };
+
+    const eventImages = {
+      "Coffee Making Basics": "images/events.jpg",
+      "Coffee Tasting Lab": "images/tasting event.jpg",
+      "Pour Over Masterclass": "images/Pour-over event.jpg",
+      "Espresso Fundamentals": "images/espresso fundamentals.jpg",
+      "Latte Art Workshop": "images/latte art.jpg",
+      "Cold Brew and Iced Coffee Workshop": "images/cold brew black coffee.jpg"
+    };
+
+    const eventPrices = {
+      "Coffee Making Basics": 45,
+      "Coffee Tasting Lab": 52,
+      "Pour Over Masterclass": 55,
+      "Espresso Fundamentals": 58,
+      "Latte Art Workshop": 60,
+      "Cold Brew and Iced Coffee Workshop": 50
+    };
+
+    const eventSelect = document.getElementById("eventSelect");
+    const eventDate = document.getElementById("eventDate");
+
+    function syncDateField() {
+      eventDate.value = eventDates[eventSelect.value] || "";
+    }
+
+    eventSelect.addEventListener("change", syncDateField);
+
+    const params = new URLSearchParams(window.location.search);
+    const eventParam = params.get("event");
+    if (eventParam && eventDates[eventParam]) {
+      eventSelect.value = eventParam;
+      syncDateField();
+    }
+
+    document.getElementById("bookingForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      if (!Atelier.requireLogin()) return;
+      const selectedEvent = eventSelect.value;
+      if (!selectedEvent || !eventDates[selectedEvent]) {
+        alert("Please choose a valid event.");
+        return;
+      }
+
+      const bookingItem = {
+        id: `event-seat-${selectedEvent.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+        name: `Event Seat: ${selectedEvent}`,
+        price: eventPrices[selectedEvent],
+        image: eventImages[selectedEvent] || "images/event1.jpg"
+      };
+
+      if (!addToCart(bookingItem)) return;
+      alert(`Booking confirmed for ${selectedEvent} on ${eventDates[selectedEvent]}. Added to cart.`);
+      window.location.href = "cart.html";
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
