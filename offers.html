@@ -50,7 +50,7 @@
             <p>Perfect for casual brewers.</p>
             <button class="btn btn-primary subscribe-btn">Subscribe</button>
           </article>
-          <article class="card offer-card" style="border: 2px solid var(--highlight);" data-id="sub-atelier" data-name="Atelier Subscription Plan" data-price="44">
+          <article class="card offer-card highlighted" data-id="sub-atelier" data-name="Atelier Subscription Plan" data-price="44">
             <h3>Atelier Plan</h3>
             <p>4 coffee packs / month</p>
             <p class="offer-price">&pound;44</p>
@@ -66,8 +66,8 @@
           </article>
         </div>
 
-        <div class="form-card" style="margin-top: 26px;">
-          <h2 class="section-title" style="font-size: 1.7rem;">Special Codes</h2>
+        <div class="form-card offer-card--spaced">
+          <h2 class="section-title special-codes-title">Special Codes</h2>
           <p>Use <strong>FIRSTORDER</strong> on cart page for 10% off your first order.</p>
           <p>Seasonal bundle discounts are updated monthly.</p>
         </div>
@@ -80,11 +80,11 @@
         <h3 class="modal-title" id="coffeePickerTitle">Choose Your Coffees</h3>
         <button class="close-btn" id="closeCoffeePicker">&times;</button>
       </div>
-      <div class="modal-body" style="grid-template-columns: 1fr;">
-        <p id="coffeePickerHint" style="margin: 0 0 8px;">Select your coffees for this subscription.</p>
-        <div id="coffeePickerFields" style="display: grid; gap: 10px;"></div>
-        <p id="coffeePickerError" style="margin: 8px 0 0; color: #b3261e; min-height: 1.2em;"></p>
-        <div class="btn-row" style="justify-content: flex-end; margin-top: 6px;">
+      <div class="modal-body coffee-picker-body">
+        <p id="coffeePickerHint" class="coffee-picker-hint">Select your coffees for this subscription.</p>
+        <div id="coffeePickerFields" class="coffee-picker-fields"></div>
+        <p id="coffeePickerError" class="coffee-picker-error"></p>
+        <div class="btn-row coffee-picker-actions">
           <button class="btn btn-outline" id="cancelCoffeePicker">Cancel</button>
           <button class="btn btn-primary" id="confirmCoffeePicker">Add Subscription</button>
         </div>
@@ -206,7 +206,7 @@
         const sizeSelectId = `coffeeSize${i}`;
         field.innerHTML = `
           <label for="${coffeeSelectId}">Coffee ${i}</label>
-          <div style="display: grid; grid-template-columns: 1fr 120px; gap: 10px;">
+          <div class="coffee-picker-row">
             <select id="${coffeeSelectId}" class="coffee-choice-select">
               <option value="">Select coffee</option>
               ${coffeeChoices.map((coffee) => `<option value="${coffee}">${coffee}</option>`).join("")}

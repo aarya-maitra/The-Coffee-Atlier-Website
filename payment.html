@@ -8,210 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    .payment-layout {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .payment-card {
-      background: var(--card-bg);
-      border-radius: 18px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(200, 162, 124, 0.32);
-      padding: 24px;
-    }
-
-    .payment-card h2 {
-      margin-bottom: 12px;
-    }
-
-    .payment-panel {
-      display: grid;
-      gap: 18px;
-    }
-
-    .order-lines {
-      display: grid;
-      gap: 10px;
-      margin-top: 14px;
-    }
-
-    .order-line {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid rgba(111, 78, 55, 0.14);
-    }
-
-    .payment-note {
-      margin: 0 0 14px;
-      color: var(--text-muted);
-      max-width: 64ch;
-    }
-
-    .payment-fields {
-      display: grid;
-      gap: 14px;
-    }
-
-    .payment-method-group {
-      display: grid;
-      gap: 14px;
-      border: 0;
-      padding: 0;
-      margin: 0;
-    }
-
-    .payment-method-group legend {
-      padding: 0;
-      margin: 0 0 6px;
-      font-family: "Playfair Display", Georgia, serif;
-      color: var(--accent-secondary);
-      font-size: 1.08rem;
-      font-weight: 700;
-    }
-
-    .method-help {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 0.93rem;
-    }
-
-    .card-fields {
-      display: grid;
-      gap: 14px;
-      padding: 16px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.5);
-      border: 1px solid rgba(111, 78, 55, 0.12);
-    }
-
-    .payment-method-select {
-      width: 100%;
-      border: 1px solid rgba(111, 78, 55, 0.25);
-      border-radius: 12px;
-      padding: 10px 12px;
-      background: #fff;
-      font: inherit;
-    }
-
-    .payment-method-note {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 0.93rem;
-    }
-
-    .method-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .method-input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .method-option {
-      display: grid;
-      gap: 4px;
-      min-height: 100%;
-      border: 1px solid rgba(111, 78, 55, 0.22);
-      border-radius: 14px;
-      background: #fff;
-      padding: 14px 12px;
-      text-align: left;
-      cursor: pointer;
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-      font: inherit;
-      box-shadow: 0 1px 0 rgba(111, 78, 55, 0.04);
-    }
-
-    .method-option strong {
-      color: var(--accent-secondary);
-      margin: 0;
-    }
-
-    .method-option span {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
-
-    .method-option.active {
-      border-color: var(--highlight);
-      box-shadow: 0 10px 20px rgba(111, 78, 55, 0.12);
-      transform: translateY(-1px);
-      background: rgba(234, 215, 197, 0.4);
-    }
-
-    .address-fields {
-      display: grid;
-      gap: 14px;
-      padding: 16px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.5);
-      border: 1px solid rgba(111, 78, 55, 0.12);
-    }
-
-    .address-fields textarea {
-      resize: none;
-      overflow-y: auto;
-      min-height: 92px;
-      font-size: inherit;
-      line-height: 1.55;
-    }
-
-    .card-fields[hidden],
-    .address-fields[hidden] {
-      display: none !important;
-    }
-
-    .method-input:focus-visible + .method-option {
-      outline: 3px solid rgba(90, 45, 45, 0.2);
-      outline-offset: 2px;
-    }
-
-    .payment-summary {
-      display: grid;
-      gap: 16px;
-      position: sticky;
-      top: 100px;
-    }
-
-    .summary-shell {
-      display: grid;
-      gap: 12px;
-      padding: 18px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.45);
-      border: 1px solid rgba(111, 78, 55, 0.12);
-    }
-
-    .summary-row strong {
-      color: var(--accent-secondary);
-    }
-
-    @media (max-width: 900px) {
-      .payment-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .payment-summary {
-        position: static;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .method-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 <body>
   <header class="site-header">
@@ -248,7 +44,7 @@
         <p class="payment-note">Complete your payment to place the order. Logged-in users can use FIRSTORDER once for their first purchase.</p>
         <div class="payment-layout">
           <div class="payment-card">
-            <h2 class="section-title" style="font-size: 1.6rem; margin-bottom: 16px;">Payment Details</h2>
+            <h2 class="section-title payment-card-title">Payment Details</h2>
             <form id="paymentForm" class="payment-panel">
               <fieldset class="payment-method-group">
                 <legend>Payment Method</legend>
@@ -305,13 +101,13 @@
                 </div>
               </div>
               <div class="field full">
-                <button class="btn btn-primary" type="submit" style="width: 100%;" id="payButton" disabled>Select Payment Method</button>
+                <button class="btn btn-primary payment-submit-btn" type="submit" id="payButton" disabled>Select Payment Method</button>
               </div>
             </form>
           </div>
 
           <aside class="payment-card payment-summary" aria-label="Order summary">
-            <h2 class="section-title" style="font-size: 1.6rem; margin-bottom: 0;">Order Summary</h2>
+            <h2 class="section-title payment-summary-title">Order Summary</h2>
             <div class="summary-shell">
               <div id="orderItems" class="order-lines"></div>
               <div>

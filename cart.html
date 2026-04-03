@@ -44,22 +44,22 @@
         <div class="cart-layout">
           <div>
             <div id="cartItemsWrap"></div>
-            <div style="margin-top: 14px;">
+            <div class="cart-summary-spacer">
               <button class="btn btn-outline" id="clearCart">Clear Cart</button>
             </div>
           </div>
           <aside class="summary">
-            <h3 class="section-title" style="font-size: 1.4rem; margin-bottom: 8px;">Order Summary</h3>
-            <p id="cartLoginNote" style="margin: 0 0 12px; color: var(--text-muted); font-size: 0.94rem;"></p>
+            <h3 class="section-title cart-summary-title">Order Summary</h3>
+            <p id="cartLoginNote" class="cart-login-note"></p>
             <div class="summary-row"><span>Subtotal</span><span id="subtotal">£0.00</span></div>
             <div class="summary-row"><span>Discount</span><span id="discount">£0.00</span></div>
             <div class="summary-row"><strong>Total</strong><strong id="total">£0.00</strong></div>
-            <div class="field" style="margin: 10px 0;">
+            <div class="field cart-offer-field">
               <label for="offerCode">Apply Offer</label>
               <input id="offerCode" type="text" placeholder="Enter code">
             </div>
             <button class="btn btn-secondary" id="applyOfferBtn">Apply</button>
-            <button class="btn btn-primary" id="checkoutBtn" style="width: 100%; margin-top: 12px;">Checkout</button>
+            <button class="btn btn-primary cart-checkout-btn" id="checkoutBtn">Checkout</button>
           </aside>
         </div>
       </div>
@@ -175,29 +175,29 @@
             ? selectedPackList.map((pack) => `${pack.coffee} (${pack.size})`).join(", ")
             : (Array.isArray(item.selectedCoffees) && item.selectedCoffees.length ? item.selectedCoffees.join(", ") : "");
           const monthlyPacksText = isSubscriptionPlan && Number(item.monthlyPacks) > 0
-            ? `<p style="margin: 6px 0 0; font-size: 0.92rem; color: var(--text-muted);">Monthly quantity: ${item.monthlyPacks} packs</p>`
+            ? `<p class="cart-item-detail">Monthly quantity: ${item.monthlyPacks} packs</p>`
             : "";
           const sizeMixText = isSubscriptionPlan && item.sizeMixSummary
-            ? `<p style="margin: 4px 0 0; font-size: 0.92rem; color: var(--text-muted);">Pack sizes: ${item.sizeMixSummary}</p>`
+            ? `<p class="cart-item-detail">Pack sizes: ${item.sizeMixSummary}</p>`
             : "";
           const subscriptionPriceText = isSubscriptionPlan && Number.isFinite(item.basePrice)
-            ? `<p style="margin: 4px 0 0; font-size: 0.92rem; color: var(--text-muted);">Base plan price: £${Number(item.basePrice).toFixed(2)} | Adjusted by size: £${item.price.toFixed(2)}</p>`
+            ? `<p class="cart-item-detail">Base plan price: £${Number(item.basePrice).toFixed(2)} | Adjusted by size: £${item.price.toFixed(2)}</p>`
             : "";
           const selectedCoffeeDetailsText = selectedCoffeeText
-            ? `<p style="margin: 4px 0 0; font-size: 0.92rem; color: var(--text-muted);">Selected coffees: ${selectedCoffeeText}</p>`
+            ? `<p class="cart-item-detail">Selected coffees: ${selectedCoffeeText}</p>`
             : "";
           const article = document.createElement("article");
           article.className = "cart-item";
           article.innerHTML = `
             <img src="${imageSrc}" alt="${item.name}" onerror="this.onerror=null;this.src='images/logo.png';">
             <div>
-              <h3 style="margin: 0 0 6px; color: var(--accent-secondary);">${item.name}</h3>
-              <p style="margin: 0;">£${item.price.toFixed(2)}</p>
+              <h3 class="cart-item-title">${item.name}</h3>
+              <p class="cart-item-price">£${item.price.toFixed(2)}</p>
               ${monthlyPacksText}
               ${sizeMixText}
               ${subscriptionPriceText}
               ${selectedCoffeeDetailsText}
-              <button class="btn btn-outline" data-remove="${item.id}" style="margin-top: 8px;">Remove</button>
+              <button class="btn btn-outline cart-remove-btn" data-remove="${item.id}">Remove</button>
             </div>
             <div class="qty-controls">
               <button class="qty-btn" data-dec="${item.id}">-</button>
