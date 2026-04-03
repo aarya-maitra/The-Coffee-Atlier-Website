@@ -313,20 +313,6 @@
       if (event.target === welcomeModal) welcomeModal.classList.remove("show");
     });
 
-    const fadeElements = document.querySelectorAll("main > section:not(:first-of-type)");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    fadeElements.forEach(el => {
-      el.classList.add("fade-in-up");
-      observer.observe(el);
-    });
   </script>
 </body>
 

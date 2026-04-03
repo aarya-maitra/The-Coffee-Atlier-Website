@@ -1708,10 +1708,6 @@ textarea:focus {
 
 .product-card img {
   cursor: pointer;
-  transition: box-shadow 0.25s ease;
-}
-.product-card img:hover {
-  box-shadow: 0 6px 16px rgba(111, 78, 55, 0.3);
 }
 
 /* Page-specific layout helpers moved out of HTML */
