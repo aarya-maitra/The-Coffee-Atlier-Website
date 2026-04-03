@@ -446,7 +446,7 @@ section {
   opacity: 0.9;
 }
 
-.featured-product h3 {
+.featured-product h2 {
   margin: 8px 0 4px;
   font-family: "Playfair Display", Georgia, serif;
   font-size: 1.5rem;
@@ -1407,7 +1407,7 @@ textarea:focus {
     padding: 12px;
   }
 
-  .featured-product h3 {
+  .featured-product h2 {
     font-size: 1.25rem;
   }
 
