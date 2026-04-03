@@ -33,6 +33,39 @@
     return key ? `${CART_PREFIX}${key}` : "";
   }
 
+  function normalizeIdentity(value) {
+    return String(value ?? "").trim().toLowerCase();
+  }
+
+  function normalizeText(value) {
+    return String(value ?? "").trim();
+  }
+
+  function getDisplayName(user) {
+    if (!user) return "";
+    const first = normalizeText(user.firstName);
+    const last = normalizeText(user.lastName);
+    return [first, last].filter(Boolean).join(" ").trim() || normalizeText(user.username) || normalizeText(user.email);
+  }
+
+  function getUserInitials(user) {
+    if (!user) return "U";
+    const nameParts = getDisplayName(user).split(/\s+/).filter(Boolean);
+    if (!nameParts.length) return "U";
+    const initials = nameParts.slice(0, 2).map((part) => part[0] || "").join("").toUpperCase();
+    return initials || "U";
+  }
+
+  function getProfileAvatarMarkup() {
+    return `
+      <svg viewBox="0 0 48 48" class="profile-avatar-icon" aria-hidden="true" focusable="false">
+        <circle cx="24" cy="24" r="24" fill="#ffffff" fill-opacity="0.16"></circle>
+        <circle cx="24" cy="18" r="8" fill="#ffffff"></circle>
+        <path d="M10 40c2.8-7.3 9-11 14-11s11.2 3.7 14 11" fill="#ffffff"></path>
+      </svg>
+    `;
+  }
+
   function migrateArrayUsers() {
     const localUsers = readJson(localStorage, USERS_KEY, null);
     if (Array.isArray(localUsers)) return localUsers;
@@ -131,6 +164,105 @@
 
   function isLoggedIn() {
     return Boolean(getCurrentUser());
+  }
+
+  function updateCurrentUserProfile(updates) {
+    const currentUser = getCurrentUser();
+    if (!currentUser) {
+      return { ok: false, message: "You are not logged in." };
+    }
+
+    const users = getUsers();
+    const currentKey = getUserKey(currentUser);
+    const currentIndex = users.findIndex((entry) => getUserKey(entry) === currentKey);
+
+    if (currentIndex === -1) {
+      return { ok: false, message: "Your profile could not be found." };
+    }
+
+    const existingUser = users[currentIndex];
+    const nextUser = {
+      ...existingUser,
+      ...updates
+    };
+
+    nextUser.username = normalizeIdentity(nextUser.username || existingUser.username);
+    nextUser.email = normalizeIdentity(nextUser.email || existingUser.email);
+    nextUser.firstName = normalizeText(nextUser.firstName);
+    nextUser.lastName = normalizeText(nextUser.lastName);
+    nextUser.password = String(nextUser.password || existingUser.password || "");
+
+    if (!nextUser.username) {
+      return { ok: false, message: "Username cannot be empty." };
+    }
+
+    if (!nextUser.email) {
+      return { ok: false, message: "Email cannot be empty." };
+    }
+
+    const candidateKeys = [nextUser.username, nextUser.email].filter(Boolean);
+    const hasConflict = users.some((entry, index) => {
+      if (index === currentIndex) return false;
+      return candidateKeys.includes(getUserKey(entry));
+    });
+
+    if (hasConflict) {
+      return { ok: false, message: "That username or email is already in use." };
+    }
+
+    const oldKey = getUserKey(existingUser);
+    const newKey = getUserKey(nextUser);
+    const currentCart = getCart();
+
+    if (newKey && newKey !== oldKey) {
+      writeJson(localStorage, getCartKeyForUser(nextUser), currentCart);
+      localStorage.removeItem(getCartKeyForUser(existingUser));
+    }
+
+    users[currentIndex] = nextUser;
+    saveUsers(users);
+    setCurrentUser({
+      username: nextUser.username,
+      firstName: nextUser.firstName,
+      lastName: nextUser.lastName,
+      email: nextUser.email
+    });
+
+    return { ok: true, user: nextUser };
+  }
+
+  function updateCurrentUserPassword(currentPassword, nextPassword) {
+    const currentUser = getCurrentUser();
+    if (!currentUser) {
+      return { ok: false, message: "You are not logged in." };
+    }
+
+    const users = getUsers();
+    const currentKey = getUserKey(currentUser);
+    const currentIndex = users.findIndex((entry) => getUserKey(entry) === currentKey);
+
+    if (currentIndex === -1) {
+      return { ok: false, message: "Your profile could not be found." };
+    }
+
+    const existingUser = users[currentIndex];
+    if (String(existingUser.password || "") !== String(currentPassword || "")) {
+      return { ok: false, message: "Current password is incorrect." };
+    }
+
+    users[currentIndex] = {
+      ...existingUser,
+      password: String(nextPassword || "")
+    };
+    saveUsers(users);
+    setCurrentUser({
+      username: users[currentIndex].username,
+      firstName: users[currentIndex].firstName,
+      lastName: users[currentIndex].lastName,
+      email: users[currentIndex].email
+    });
+
+    return { ok: true };
   }
 
   function getFirstOrderKey(user) {
@@ -281,14 +413,22 @@
     document.querySelectorAll('.site-nav a[href="signup.html"]').forEach((link) => {
       link.hidden = Boolean(user);
     });
-    document.querySelectorAll('.site-nav a[href="login.html"], .site-nav a[href="#logout"]').forEach((link) => {
+    document.querySelectorAll('.site-nav a[href="login.html"], .site-nav a[href="#logout"], .site-nav a[href="profile.html"], .site-nav a.profile-link').forEach((link) => {
       if (user) {
-        link.textContent = "Logout";
-        link.href = "#logout";
-        link.dataset.logoutLink = "true";
+        link.href = "profile.html";
+        link.classList.add("profile-link");
+        link.dataset.profileLink = "true";
+        delete link.dataset.logoutLink;
+        link.setAttribute("aria-label", `Open profile for ${getDisplayName(user) || "current user"}`);
+        link.setAttribute("title", "Profile");
+        link.innerHTML = `<span class="profile-avatar" aria-hidden="true">${getProfileAvatarMarkup()}</span>`;
       } else {
         link.textContent = "Login";
         link.href = "login.html";
+        link.classList.remove("profile-link");
+        link.removeAttribute("aria-label");
+        link.removeAttribute("title");
+        delete link.dataset.profileLink;
         delete link.dataset.logoutLink;
       }
     });
@@ -437,6 +577,9 @@
     clearCurrentUser,
     isLoggedIn,
     getUserKey,
+    getDisplayName,
+    getUserInitials,
+    getProfileAvatarMarkup,
     getCart,
     saveCart,
     clearCart,
@@ -449,6 +592,8 @@
     updateCartBadges,
     showAuthPrompt,
     requireLogin,
+    updateCurrentUserProfile,
+    updateCurrentUserPassword,
     applyFirstOrderDiscount,
     hasUsedFirstOrder,
     markFirstOrderUsed

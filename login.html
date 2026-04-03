@@ -123,7 +123,7 @@
     Atelier.updateCartBadges();
 
     function getRedirectTarget() {
-      return new URLSearchParams(window.location.search).get("redirect") || "index.html";
+      return new URLSearchParams(window.location.search).get("redirect") || "profile.html";
     }
 
     document.getElementById("loginForm").addEventListener("submit", (event) => {

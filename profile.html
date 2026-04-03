@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Coffee Atelier | Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html"><img src="images/logo.png" alt="The Coffee Atelier logo"><span>The Coffee Atelier</span></a>
+      <div class="nav-wrap">
+        <nav class="site-nav">
+          <a href="index.html">Home</a>
+          <div class="nav-dropdown">
+            <span class="nav-dropdown-toggle">Coffee</span>
+            <div class="nav-dropdown-menu">
+              <a href="beans.html">Beans</a>
+              <a href="coffee.html">Coffee</a>
+            </div>
+          </div>
+          <a href="equipment.html">Equipment</a>
+          <a href="offers.html">Offers &amp; Subscription</a>
+          <a href="events.html">Events &amp; Workshops</a>
+          <a href="signup.html">Register</a>
+          <a href="login.html">Login</a>
+        </nav>
+        <a class="cart-link" href="cart.html" aria-label="Cart">
+          <span>&#128722;</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="profile-section">
+      <div class="container">
+        <div class="profile-hero">
+          <p class="profile-kicker">Account center</p>
+          <h1 class="section-title">Your profile</h1>
+          <p class="section-subtext">Use the menu on the left to edit your account details, change your password, or sign out.</p>
+        </div>
+
+        <div class="profile-shell">
+          <aside class="profile-sidebar" aria-label="Profile summary and options">
+              <div class="profile-card">
+              <div class="profile-avatar-large" id="profileAvatar" aria-hidden="true"></div>
+              <h2 id="profileName">Your profile</h2>
+              <p id="profileEmail"></p>
+            </div>
+
+            <div class="profile-menu" role="tablist" aria-label="Profile sections">
+              <button class="profile-menu-item active" type="button" data-profile-tab="details" aria-selected="true">Edit details</button>
+              <button class="profile-menu-item" type="button" data-profile-tab="password" aria-selected="false">Change password</button>
+            </div>
+
+            <div class="profile-logout-action">
+              <button class="profile-menu-item danger" type="button" data-profile-action="logout">Logout</button>
+            </div>
+          </aside>
+
+          <div class="profile-content">
+            <section class="profile-panel" data-panel="details">
+              <h2>Update your details</h2>
+              <p>Keep your sign-in name and contact information up to date.</p>
+
+              <form id="profileDetailsForm" class="form-grid profile-form">
+                <div class="field">
+                  <label for="profileUsername">Username</label>
+                  <input id="profileUsername" type="text" required>
+                </div>
+                <div class="field">
+                  <label for="profileEmailInput">Email</label>
+                  <input id="profileEmailInput" type="email" required>
+                </div>
+                <div class="field">
+                  <label for="profileFirstName">First name</label>
+                  <input id="profileFirstName" type="text" required>
+                </div>
+                <div class="field">
+                  <label for="profileLastName">Last name</label>
+                  <input id="profileLastName" type="text" required>
+                </div>
+                <div class="field full">
+                  <p class="profile-note">Changing your username or email updates the account you use to log in.</p>
+                </div>
+                <div class="field full">
+                  <button class="btn btn-primary" type="submit">Save changes</button>
+                </div>
+              </form>
+            </section>
+
+            <section class="profile-panel" data-panel="password" hidden>
+              <h2>Change your password</h2>
+              <p>Choose a new password and confirm it before saving.</p>
+
+              <form id="profilePasswordForm" class="form-grid profile-form">
+                <div class="field full">
+                  <label for="currentPassword">Current password</label>
+                  <input id="currentPassword" type="password" required>
+                </div>
+                <div class="field">
+                  <label for="newPassword">New password</label>
+                  <input id="newPassword" type="password" required>
+                </div>
+                <div class="field">
+                  <label for="confirmPassword">Confirm new password</label>
+                  <input id="confirmPassword" type="password" required>
+                </div>
+                <div class="field full">
+                  <button class="btn btn-primary" type="submit">Update password</button>
+                </div>
+              </form>
+            </section>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>About The Coffee Atelier</h3>
+        <p>Premium coffee blends, brewing equipment and curated workshops designed to bring coffee lovers together.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="beans.html">Coffee Beans</a>
+          <a href="coffee.html">Coffee Cups</a>
+          <a href="equipment.html">Brewing Equipment</a>
+          <a href="events.html">Events</a>
+          <a href="offers.html">Special Offers</a>
+        </div>
+      </div>
+      <div>
+        <h3>Contact Us</h3>
+        <div class="footer-contact">
+          <p>Email: info@thecoffeeatelier.com</p>
+          <p>Phone: +44 07135 43210</p>
+          <p>London, United Kingdom</p>
+        </div>
+      </div>
+      <div>
+        <h3>Subscribe</h3>
+        <form class="footer-subscribe">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="button" class="btn btn-gold" onclick="alert('Thanks for subscribing!')">Subscribe</button>
+        </form>
+        <div class="footer-social">
+          <a class="social-icon" href="#" aria-label="Facebook"><img src="images/facebook.svg" alt="Facebook"></a>
+          <a class="social-icon" href="#" aria-label="Instagram"><img src="images/instagram.svg" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 The Coffee Atelier | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="js/atelier.js"></script>
+  <script>
+    function setResponsiveViewport() {
+      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`);
+    }
+
+    setResponsiveViewport();
+    window.addEventListener("resize", setResponsiveViewport);
+
+    Atelier.updateCartBadges();
+
+    function redirectToLogin() {
+      window.location.href = `login.html?redirect=${encodeURIComponent("profile.html")}`;
+    }
+
+    function getProfileUser() {
+      const currentUser = Atelier.getCurrentUser();
+      if (!currentUser) return null;
+      return Atelier.getUsers().find((entry) => Atelier.getUserKey(entry) === Atelier.getUserKey(currentUser)) || currentUser;
+    }
+
+    const profileUser = getProfileUser();
+    if (!profileUser) {
+      redirectToLogin();
+    }
+
+    const profileAvatar = document.getElementById("profileAvatar");
+    const profileName = document.getElementById("profileName");
+    const profileEmail = document.getElementById("profileEmail");
+    const detailsForm = document.getElementById("profileDetailsForm");
+    const passwordForm = document.getElementById("profilePasswordForm");
+    const panelButtons = Array.from(document.querySelectorAll("[data-profile-tab]"));
+    const panels = Array.from(document.querySelectorAll("[data-panel]"));
+
+    let activeUser = profileUser;
+
+    function renderProfile(user) {
+      if (!user) return;
+      profileAvatar.innerHTML = Atelier.getProfileAvatarMarkup();
+      profileName.textContent = Atelier.getDisplayName(user) || "Your profile";
+      profileEmail.textContent = user.email || user.username || "";
+
+      document.getElementById("profileUsername").value = user.username || "";
+      document.getElementById("profileEmailInput").value = user.email || "";
+      document.getElementById("profileFirstName").value = user.firstName || "";
+      document.getElementById("profileLastName").value = user.lastName || "";
+    }
+
+    function setActivePanel(tabName) {
+      panelButtons.forEach((button) => {
+        const isActive = button.dataset.profileTab === tabName;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-selected", String(isActive));
+      });
+
+      panels.forEach((panel) => {
+        panel.hidden = panel.dataset.panel !== tabName;
+      });
+    }
+
+    panelButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setActivePanel(button.dataset.profileTab);
+      });
+    });
+
+    const logoutButton = document.querySelector("[data-profile-action='logout']");
+    if (logoutButton) {
+      logoutButton.addEventListener("click", () => {
+        Atelier.clearCurrentUser();
+        window.location.href = "index.html";
+      });
+    }
+
+    detailsForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const updatedUsername = document.getElementById("profileUsername").value.trim();
+      const updatedEmail = document.getElementById("profileEmailInput").value.trim();
+      const updatedFirstName = document.getElementById("profileFirstName").value.trim();
+      const updatedLastName = document.getElementById("profileLastName").value.trim();
+
+      const result = Atelier.updateCurrentUserProfile({
+        username: updatedUsername,
+        email: updatedEmail,
+        firstName: updatedFirstName,
+        lastName: updatedLastName
+      });
+
+      if (!result.ok) {
+        alert(result.message);
+        return;
+      }
+
+      activeUser = result.user;
+      renderProfile(activeUser);
+      alert("Your profile details were updated.");
+    });
+
+    passwordForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const currentPassword = document.getElementById("currentPassword").value;
+      const newPassword = document.getElementById("newPassword").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+
+      if (newPassword !== confirmPassword) {
+        alert("The new passwords do not match.");
+        return;
+      }
+
+      const result = Atelier.updateCurrentUserPassword(currentPassword, newPassword);
+      if (!result.ok) {
+        alert(result.message);
+        return;
+      }
+
+      passwordForm.reset();
+      alert("Your password was updated.");
+    });
+
+    renderProfile(activeUser);
+    setActivePanel("details");
+  </script>
+</body>
+</html>
