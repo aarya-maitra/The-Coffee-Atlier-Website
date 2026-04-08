@@ -55,8 +55,8 @@
             </div>
 
             <div class="profile-menu" role="tablist" aria-label="Profile sections">
-              <button class="profile-menu-item active" type="button" data-profile-tab="details" aria-selected="true">Edit details</button>
-              <button class="profile-menu-item" type="button" data-profile-tab="password" aria-selected="false">Change password</button>
+              <button class="profile-menu-item active" type="button" id="tab-details" role="tab" aria-controls="panel-details" aria-selected="true" data-profile-tab="details">Edit details</button>
+              <button class="profile-menu-item" type="button" id="tab-password" role="tab" aria-controls="panel-password" aria-selected="false" data-profile-tab="password">Change password</button>
             </div>
 
             <div class="profile-logout-action">
@@ -65,7 +65,7 @@
           </aside>
 
           <div class="profile-content">
-            <section class="profile-panel" data-panel="details">
+            <section class="profile-panel" id="panel-details" role="tabpanel" aria-labelledby="tab-details" data-panel="details">
               <h2>Update your details</h2>
               <p>Keep your sign-in name and contact information up to date.</p>
 
@@ -95,7 +95,7 @@
               </form>
             </section>
 
-            <section class="profile-panel" data-panel="password" hidden>
+            <section class="profile-panel" id="panel-password" role="tabpanel" aria-labelledby="tab-password" data-panel="password" hidden>
               <h2>Change your password</h2>
               <p>Choose a new password and confirm it before saving.</p>
 
