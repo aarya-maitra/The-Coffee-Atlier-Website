@@ -51,6 +51,7 @@
           <aside class="summary">
             <h2 class="section-title cart-summary-title">Order Summary</h2>
             <p id="cartLoginNote" class="cart-login-note"></p>
+            <div class="summary-row" id="itemCountRow"><span>Items</span><span id="itemCount">0</span></div>
             <div class="summary-row"><span>Subtotal</span><span id="subtotal">£0.00</span></div>
             <div class="summary-row"><span>Discount</span><span id="discount">£0.00</span></div>
             <div class="summary-row"><strong>Total</strong><strong id="total">£0.00</strong></div>
@@ -120,6 +121,8 @@
     const subtotalEl = document.getElementById("subtotal");
     const discountEl = document.getElementById("discount");
     const totalEl = document.getElementById("total");
+    const itemCountRow = document.getElementById("itemCountRow");
+    const itemCountEl = document.getElementById("itemCount");
     const offerInput = document.getElementById("offerCode");
     const applyOfferBtn = document.getElementById("applyOfferBtn");
     const cartLoginNote = document.getElementById("cartLoginNote");
@@ -209,9 +212,12 @@
         });
       }
 
+      const itemCount = cart.reduce((sum, item) => sum + Number(item.qty || 0), 0);
       const subtotal = calculateSubtotal(cart);
       const discount = subtotal * discountRate;
       const total = subtotal - discount;
+      itemCountEl.textContent = String(itemCount);
+      itemCountRow.style.display = cart.length ? "flex" : "none";
       subtotalEl.textContent = `£${subtotal.toFixed(2)}`;
       discountEl.textContent = `£${discount.toFixed(2)}`;
       totalEl.textContent = `£${total.toFixed(2)}`;
